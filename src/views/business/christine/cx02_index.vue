@@ -131,92 +131,198 @@
 					</tr>
 
 					<tr height="40" style="mso-height-source: userset; height: 30.0pt;">
-						<td colspan="2" height="40" class="xl81" style="height: 30.0pt">检测单位名称:</td>
-						<td colspan="5" class="xl83" width="110" style="width: 82pt; padding-top: 15px;">
-							<!-- 与前端校验规则进行绑定，限制校验信息是否输出 -->
-							<el-form-item prop="jcdwmc" :rules="rules.jcdwmc.rules" :error="errorsMsg.jcdwmc.errMsg"
-								:show-message="errorsMsg.jcdwmc.hasError">
-								<el-input v-model="form.jcdwmc" clearable /> <span
-									class="hidden-span">{{form.jcdwmc}}</span>
-							</el-form-item>
-						</td>
-						<td colspan="2" class="xl85" width="110" style="width: 82pt">记录编号:</td>
-						<td colspan="2" class="xl83" width="110" style="width: 82pt;padding-top: 15px;">
-							<el-form-item prop="jlbh" :rules="rules.jlbh.rules" :error="errorsMsg.jlbh.errMsg"
-								:show-message="errorsMsg.jlbh.hasError">
-								<el-input v-model="form.jlbh" clearable /> <span
-									class="hidden-span">{{form.jlbh}}</span>
-							</el-form-item>
-						</td>
+					    <td colspan="2" height="40" class="xl81" style="height: 30.0pt">检测单位名称:</td>
+					    <td colspan="5" class="xl83" width="110" style="width: 82pt; padding-top: 3px;">
+					        <!-- 与前端校验规则进行绑定，限制校验信息是否输出 -->
+					        <el-form-item 
+					            prop="jcdwmc" 
+					            :rules="rules.jcdwmc.rules" 
+					            :error="errorsMsg.jcdwmc.errMsg" 
+					            :show-message="errorsMsg.jcdwmc.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.jcdwmc" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.jcdwmc }}</span>
+					        </el-form-item>
+					    </td>
+					    <td colspan="2" class="xl85" width="110" style="width: 82pt">记录编号:</td>
+					    <td colspan="2" class="xl83" width="110" style="width: 82pt; padding-top: 3px;">
+					        <el-form-item 
+					            prop="jlbh" 
+					            :rules="rules.jlbh.rules" 
+					            :error="errorsMsg.jlbh.errMsg" 
+					            :show-message="errorsMsg.jlbh.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.jlbh" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.jlbh }}</span>
+					        </el-form-item>
+					    </td>
 					</tr>
-					<!-- <tr height="0" style="display:none; mso-height-source:userset; mso-height-alt: 255">
-						<td colspan="2" class="xl87" width="112" style="width: 84pt">　</td>
-						<td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">　</td>
-						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">　</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">　</td>
-					</tr>
-					<tr height="0" style="display:none; mso-height-source:userset; mso-height-alt: 255">
-						<td colspan="2" class="xl87" width="112" style="width: 84pt">　</td>
-						<td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">　</td>
-						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">　</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">　</td>
-					</tr> -->
 					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
-						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程名称
+					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程名称</td>
+					    <td colspan="4" class="xl70" style="border-left: none; width: 199pt; padding: 0;">
+					        <el-form-item 
+					            prop="gcmc" 
+					            :rules="rules.gcmc.rules" 
+					            :error="errorsMsg.gcmc.errMsg" 
+					            :show-message="errorsMsg.gcmc.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.gcmc" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.gcmc }}</span>
+					        </el-form-item>
+					    </td>
+					
+					    <td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">合同段</td>
+					    <td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
+					        <el-form-item 
+					            prop="htd" 
+					            :rules="rules.htd.rules" 
+					            :error="errorsMsg.htd.errMsg" 
+					            :show-message="errorsMsg.htd.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.htd" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.htd }}</span>
+					        </el-form-item>
+					    </td>
+					</tr>
+					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
+					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">施工单位</td>
+					    <td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">
+					        <el-form-item 
+					            prop="sgdw" 
+					            :rules="rules.sgdw.rules" 
+					            :error="errorsMsg.sgdw.errMsg" 
+					            :show-message="errorsMsg.sgdw.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.sgdw" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.sgdw }}</span>
+					        </el-form-item>
+					    </td>
+					    <td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">监理单位</td>
+					    <td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
+					        <el-form-item 
+					            prop="jl dw" 
+					            :rules="rules.jldw.rules" 
+					            :error="errorsMsg.jldw.errMsg" 
+					            :show-message="errorsMsg.jldw.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.jldw" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.jldw }}</span>
+					        </el-form-item>
+					    </td>
+					</tr>
+					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
+					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程部位/用途</td>
+					    <td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt">
+					        <el-form-item 
+					            prop="gcbw_yt" 
+					            :rules="rules.gcbw_yt.rules" 
+					            :error="errorsMsg.gcbw_yt.errMsg" 
+					            :show-message="errorsMsg.gcbw_yt.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.gcbw_yt" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.gcbw_yt }}</span>
+					        </el-form-item>
+					    </td>
+					</tr>
+					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
+					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">样品信息</td>
+					    <td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt">
+					        <el-form-item 
+					            prop="ypxx" 
+					            :rules="rules.ypxx.rules" 
+					            :error="errorsMsg.ypxx.errMsg" 
+					            :show-message="errorsMsg.ypxx.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.ypxx" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.ypxx }}</span>
+					        </el-form-item>
+					    </td>
+					</tr>
+					<tr height="41" style="mso-height-source: userset; height: 31.15pt;">
+						<td colspan="2" height="41" class="xl87" width="112" style="height: 31.15pt; width: 84pt">试验检测日期
 						</td>
-						<td colspan="4" class="xl70" style="border-left: none; width: 199pt; padding: 0;">
+						<td colspan="4" class="xl70" width="266" style="border-left: none; width: 199pt; padding: 0;">
 						    <el-form-item 
-						        prop="gcmc" 
-						        :rules="rules.gcmc.rules" 
-						        :error="errorsMsg.gcmc.errMsg" 
-						        :show-message="errorsMsg.gcmc.hasError"
+						        prop="syjcrq" 
+						        :rules="rules.syjcrq.rules" 
+						        :error="errorsMsg.syjcrq.errMsg" 
+						        :show-message="errorsMsg.syjcrq.hasError" 
+						        style="margin: 0; height: 100%;">
+						        <el-date-picker
+						            v-model="form.syjcrq"
+						            type="date"
+						            value-format="YYYY-MM-DD 00:00:00"
+						            style="width: 100%; height: 100%; box-sizing: border-box;">
+						        </el-date-picker>
+						    </el-form-item>
+						    <span style="display: none;">{{ form.syjcrq }}</span>
+						</td>
+						<td colspan="2" class="xl70" width="110" style="border-left:none; width:82pt">试验条件</td>
+						<td colspan="3" class="xl94" style="border-left: none; width: 123pt; padding: 0;">
+						    <el-form-item 
+						        prop="sytj" 
+						        :rules="rules.sytj.rules" 
+						        :error="errorsMsg.sytj.errMsg" 
+						        :show-message="errorsMsg.sytj.hasError"
 						        style="margin: 0;"
 						    >
 						        <el-input 
-						            v-model="form.gcmc" 
+						            v-model="form.sytj" 
 						            clearable 
 						            style="width: 100%; height: 100%; box-sizing: border-box;"
 						        />
 						    </el-form-item>
 						    <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-						    <span style="display: none;">{{ form.gcmc }}</span>
+						    <span style="display: none;">{{ form.sytj }}</span>
 						</td>
-
-						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">合同段</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt"><span
-								style="mso-spacerun:yes">&nbsp; </span>string</td>
-					</tr>
-					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
-						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">施工单位
-						</td>
-						<td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt"><span
-								style="mso-spacerun:yes">&nbsp;&nbsp; </span>string</td>
-						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">监理单位</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt"><span
-								style="mso-spacerun:yes">&nbsp; </span>string<span
-								style="mso-spacerun:yes">&nbsp;</span></td>
-					</tr>
-					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
-						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程部位/用途
-						</td>
-						<td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt"><span
-								style="mso-spacerun:yes">&nbsp; </span>string</td>
-					</tr>
-					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
-						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">样品信息
-						</td>
-						<td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt"><span
-								style="mso-spacerun:yes">&nbsp;&nbsp; </span>string</td>
-					</tr>
-					<tr height="41" style="mso-height-source: userset; height: 31.15pt;">
-						<td colspan="2" height="41" class="xl87" width="112" style="height: 31.15pt; width: 84pt">试验检测日期
-						</td>
-						<td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">Year-month-day
-						</td>
-						<td colspan="2" class="xl70" width="110" style="border-left:none; width:82pt">试验条件</td>
-						<td colspan="3" class="xl94" width="165" style="border-left:none; width:123pt">温度：<span
-								style="mso-spacerun:yes">&nbsp; </span>℃ ，相对湿度：<span style="mso-spacerun:yes">&nbsp;
-							</span>%</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" height="30" class="xl87" width="112" style="height:22.9pt;width:84pt">检测依据</td>
@@ -437,7 +543,7 @@
 			sgdw: undefined, // 施工单位
 			jldw: undefined, // 监理单位
 
-			gcbw: undefined, // 工程部位/用途
+			gcbw_yt: undefined, // 工程部位/用途
 			ypxx: undefined, // 样品信息
 			syjcrq: undefined, // 试验检测日期
 			sytj: undefined, // 试验条件
@@ -540,7 +646,7 @@
 					}
 				]
 			},
-			gcbw: {
+			gcbw_yt: {
 				rules: [{
 						required: true,
 						message: '工程部位/用途不能为空！'
@@ -681,7 +787,7 @@
 				hasError: false,
 				errMsg: ""
 			},
-			gcbw: {
+			gcbw_yt: {
 				hasError: false,
 				errMsg: ""
 			},
