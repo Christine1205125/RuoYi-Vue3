@@ -16,6 +16,20 @@ export function Lookcx02(id) {
 	  method: 'get',
 	})
 }
+export function updateCX02(data) {
+	return request({
+	  url: '/business/christine/cx02/update',
+	  method: 'post',
+	  data: data
+	})
+}
+
+export function deleteCX02(id) {
+	return request({
+	  url: '/business/christine/cx02/delete/'+id,
+	  method: 'delete',
+	})
+}	
 //修改
 export function getTestReportCX02(id) {
 	return request({

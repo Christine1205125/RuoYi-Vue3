@@ -72,6 +72,7 @@
 			<el-table-column prop="qydd" label="取样地点" width="150"></el-table-column>
 			<el-table-column prop="pzgg" label="品种规格" width="150"></el-table-column>
 			<el-table-column prop="jlcd" label="集料产地" width="150"></el-table-column>
+			<!-- <el-table-column prop="position" label="位置经纬度" width="260"></el-table-column> -->
 
 			<el-table-column label="创建时间" align="center" prop="createTime" width="150">
 				<template #default="scope">
@@ -88,6 +89,8 @@
 					<el-button link type="primary" icon="Edit" @click="seeRecord(scope.row)">查看</el-button>
 					<!-- <el-button link type="primary" icon="Plus" @click="handleAdd(scope.row)" >新增</el-button>
 		         <el-button v-if="scope.row.parentId != 0" link type="primary" icon="Delete" @click="handleDelete(scope.row)" >删除</el-button> -->
+					<el-button v-if="scope.row.parentId != 0" link type="primary" icon="Delete"
+						@click="handleDelete(scope.row)">删除</el-button>
 				</template>
 			</el-table-column>
 		</el-table>
@@ -129,15 +132,24 @@
 
 					<tr height="40" style="mso-height-source: userset; height: 30.0pt;">
 						<td colspan="2" height="40" class="xl81" style="height: 30.0pt">检测单位名称:</td>
-						<td colspan="5" class="xl83" width="321" style="width: 240pt"><span
-								style="mso-spacerun:yes">&nbsp;&nbsp; </span>
-							<span>{{form.value.jcdwmc}}</span>
+						<td colspan="5" class="xl83" width="110" style="width: 82pt; padding-top: 15px;">
+							<!-- 与前端校验规则进行绑定，限制校验信息是否输出 -->
+							<el-form-item prop="jcdwmc" :rules="rules.jcdwmc.rules" :error="errorsMsg.jcdwmc.errMsg"
+								:show-message="errorsMsg.jcdwmc.hasError">
+								<el-input v-model="form.jcdwmc" clearable /> <span
+									class="hidden-span">{{form.jcdwmc}}</span>
+							</el-form-item>
 						</td>
 						<td colspan="2" class="xl85" width="110" style="width: 82pt">记录编号:</td>
-						<td colspan="2" class="xl83" width="110" style="width: 82pt"><span
-								style="mso-spacerun:yes">&nbsp; </span>string</td>
+						<td colspan="2" class="xl83" width="110" style="width: 82pt;padding-top: 15px;">
+							<el-form-item prop="jlbh" :rules="rules.jlbh.rules" :error="errorsMsg.jlbh.errMsg"
+								:show-message="errorsMsg.jlbh.hasError">
+								<el-input v-model="form.jlbh" clearable /> <span
+									class="hidden-span">{{form.jlbh}}</span>
+							</el-form-item>
+						</td>
 					</tr>
-					<tr height="0" style="display:none; mso-height-source:userset; mso-height-alt: 255">
+					<!-- <tr height="0" style="display:none; mso-height-source:userset; mso-height-alt: 255">
 						<td colspan="2" class="xl87" width="112" style="width: 84pt">　</td>
 						<td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">　</td>
 						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">　</td>
@@ -148,7 +160,7 @@
 						<td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">　</td>
 						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">　</td>
 						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">　</td>
-					</tr>
+					</tr> -->
 					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
 						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程名称
 						</td>
@@ -321,7 +333,8 @@
 							T=(1-Y的平均值/ρ_砂)*100</td>
 					</tr>
 					<tr height="60" style="mso-height-source:userset;height:45.0pt">
-						<td colspan="11" height="60" class="xl121" width="653" style="height:45.0pt;width:488pt">
+						<td colspan="11" height="60" class="xl121" width="653"
+							style="height:45.0pt;width:488pt;text-align: left; padding-left: 0;">
 							附加声明：<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>string</td>
 					</tr>
 					<tr height="35" style="mso-height-source:userset;height:26.25pt">
@@ -353,7 +366,7 @@
 			</el-form>
 			<template #footer>
 				<div class="dialog-footer" style="text-align: center;">
-					<el-button type="primary" icon="Edit" @click="handleUpdate(scope.row)">修改</el-button>
+					<el-button type="primary" icon="Edit" @click="handleUpdate()">修改</el-button>
 					<el-button type="primary" @click="genExcel">导出表格</el-button>
 					<el-button @click="cancel">取 消</el-button>
 				</div>
@@ -366,18 +379,24 @@
 	import {
 		h
 	} from 'vue';
+
 	import {
 		ref,
 		watch,
 		computed
 	} from 'vue';
+
 	import {
-		listcx02
+		listcx02,
+		updateCX02,
+		deleteCX02
 	} from '../../../api/business/christine/cx02';
 	import $ from 'jquery';
+
 	import {
 		getTestReportCX02
 	} from '../../../api/business/christine/cx02';
+
 	const cx02List = ref([]);
 	const {
 		proxy
@@ -391,17 +410,29 @@
 
 	const data = reactive({
 		form: {
-			jcdwmc: undefined,
-			a1_syqsyzl: undefined,
-			a2_syqsyzl: undefined,
-			a3_syqsyzl: undefined,
-			b1_tgskxlzl: undefined,
-			b2_tgskxlzl: undefined,
-			b3_tgskxlzl: undefined,
-			c1_dz: undefined,
-			c2_dz: undefined,
-			c3_dz: undefined,
-			c_pjz: undefined
+			id: undefined, // 主键编号
+			time: undefined, // 创建时间
+			position: undefined, // 位置经纬度
+			userid: undefined, // 创建者ID
+			jcdwmc: undefined, // 检测单位名称
+			jlbh: undefined, // 记录编号
+			gcmc: undefined, // 工程名称
+			htd: undefined, // 合同段
+			sgdw: undefined, // 施工单位
+			jldw: undefined, // 监理单位
+
+			gcbw: undefined, // 工程部位/用途
+			ypxx: undefined, // 样品信息
+			syjcrq: undefined, // 试验检测日期
+			sytj: undefined, // 试验条件
+			jcyj: undefined, // 检测依据
+			pdyj: undefined, // 判定依据
+			zyyqsbmcjbh: undefined, // 主要仪器设备名称及编号
+			qydd: undefined, // 取样地点
+			qyrq: undefined, // 取样日期
+			dbsl: undefined, // 代表数量(m^3)
+			jlcd: undefined, // 集料产地
+			pzgg: undefined, // 品种规格
 		},
 		queryParams: {
 			jcdwmc: undefined,
@@ -424,84 +455,199 @@
 			pageSize: 10,
 		},
 		rules: {
+			// 基本信息校验
 			jcdwmc: {
 				rules: [{
-					required: true,
-					errorMessage: '检测单位名称不能为空'
-				}, {
-					maxLength: 64,
-					errorMessage: '长度不能超过{maxLength}个字符',
-				}],
-			},
-			sgdw: {
-				rules: [{
-					required: true,
-					errorMessage: '施工单位不能为空'
-				}, {
-					maxLength: 64,
-					errorMessage: '长度不能超过{maxLength}个字符',
-				}],
-			},
-			jldw: {
-				rules: [{
-					required: true,
-					errorMessage: '监理单位不能为空'
-				}, {
-					maxLength: 64,
-					errorMessage: '长度不能超过{maxLength}个字符',
-				}],
+						required: true,
+						message: '检测单位名称不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
 			},
 			htd: {
 				rules: [{
-					required: true,
-					errorMessage: '合同段不能为空'
-				}, {
-					maxLength: 64,
-					errorMessage: '长度不能超过{maxLength}个字符',
-				}],
+						required: true,
+						message: '合同段不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
 			},
-			a1_syqsyzl: {
+			sgdw: {
 				rules: [{
-					required: true,
-					errorMessage: 'A1不能为空'
-				}],
+						required: true,
+						message: '施工单位不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
 			},
-			a2_syqsyzl: {
+			jldw: {
 				rules: [{
-					required: true,
-					errorMessage: 'A2不能为空'
-				}],
+						required: true,
+						message: '监理单位不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
 			},
-			a3_syqsyzl: {
+
+			// 表单详情校验
+			jlbh: {
 				rules: [{
-					required: true,
-					errorMessage: 'A3不能为空'
-				}],
+						required: true,
+						message: '记录编号不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
 			},
-			b1_tgskxlzl: {
+			gcmc: {
 				rules: [{
-					required: true,
-					errorMessage: 'B1不能为空'
-				}],
+						required: true,
+						message: '工程名称不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
 			},
-			b2_tgskxlzl: {
+			gcbw: {
 				rules: [{
-					required: true,
-					errorMessage: 'B2不能为空'
-				}],
+						required: true,
+						message: '工程部位/用途不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
 			},
-			b3_tgskxlzl: {
+			ypxx: {
 				rules: [{
-					required: true,
-					errorMessage: 'B3不能为空'
-				}],
+						required: true,
+						message: '样品信息不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
 			},
-		},
+			syjcrq: {
+				rules: [{
+						required: true,
+						message: '试验检测日期不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
+			},
+			sytj: {
+				rules: [{
+						required: true,
+						message: '试验条件不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
+			},
+			jcyj: {
+				rules: [{
+						required: true,
+						message: '检测依据不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
+			},
+			pdyj: {
+				rules: [{
+						required: true,
+						message: '判定依据不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
+			},
+			zyyqsbmcjbh: {
+				rules: [{
+						required: true,
+						message: '主要仪器设备名称及编号不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
+			},
+			qydd: {
+				rules: [{
+						required: true,
+						message: '取样地点不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
+			},
+			qyrq: {
+				rules: [{
+						required: true,
+						message: '取样日期不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
+			},
+
+			jlcd: {
+				rules: [{
+						required: true,
+						message: '集料产地不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
+			},
+
+
+		}, //endrules
+
 		errorsMsg: {
 			jcdwmc: {
 				hasError: false,
 				errMsg: ""
 			},
+			htd: {
+				hasError: false,
+				errMsg: ""
+			},
 			sgdw: {
 				hasError: false,
 				errMsg: ""
@@ -510,31 +656,60 @@
 				hasError: false,
 				errMsg: ""
 			},
-			htd: {
+			// 表单详情错误信息
+			jlbh: {
 				hasError: false,
 				errMsg: ""
 			},
-			a1_syqsyzl: {
+			gcmc: {
 				hasError: false,
 				errMsg: ""
 			},
-			a2_syqsyzl: {
+			gcbw: {
 				hasError: false,
 				errMsg: ""
 			},
-			a3_syqsyzl: {
+			ypxx: {
 				hasError: false,
 				errMsg: ""
 			},
-			b1_tgskxlzl: {
+			syjcrq: {
 				hasError: false,
 				errMsg: ""
 			},
-			b2_tgskxlzl: {
+			sytj: {
 				hasError: false,
 				errMsg: ""
 			},
-			b3_tgskxlzl: {
+			jcyj: {
+				hasError: false,
+				errMsg: ""
+			},
+			pdyj: {
+				hasError: false,
+				errMsg: ""
+			},
+			zyyqsbmcjbh: {
+				hasError: false,
+				errMsg: ""
+			},
+			qydd: {
+				hasError: false,
+				errMsg: ""
+			},
+			qyrq: {
+				hasError: false,
+				errMsg: ""
+			},
+			dbsl: {
+				hasError: false,
+				errMsg: ""
+			},
+			jlcd: {
+				hasError: false,
+				errMsg: ""
+			},
+			pzgg: {
 				hasError: false,
 				errMsg: ""
 			},
@@ -548,19 +723,6 @@
 		errorsMsg
 	} = toRefs(data);
 
-	watch(() => [form.value.m3_rltblbhszzl, form.value.m1_rlthblbzzl, form.value.ρT], ([m3, m1, ρT]) => {
-		if (ρT)
-			form.value.v1_rltrjdz = (m3 - m1) / ρT;
-		else
-			form.value.v1_rltrjdz = ''
-	});
-	watch(() => [form.value.m3_2_rltblbhszzl, form.value.m1_2_rlthblbzzl, form.value.ρT], ([m3, m1, ρT]) => {
-		if (ρT)
-			form.value.v1_2_rltrjdz = (m3 - m1) / ρT;
-		else
-			form.value.v1_2_rltrjdz = ''
-	});
-
 	/** 查询列表 */
 	function getList() {
 		loading.value = true;
@@ -569,14 +731,13 @@
 			loading.value = false;
 			total.value = response.total;
 		});
-		alert("查询操作")
 	}
 
 	/** 搜索按钮操作 */
 	function handleQuery() {
 		getList();
 	}
-
+	/**查看按钮操作*/
 	function seeRecord(row) {
 		form.value = row
 		console.log(form.value.jcdwmc)
@@ -597,11 +758,11 @@
 	/** 修改按钮操作 */
 	function handleUpdate() {
 		console.log(form.value)
-		proxy.$refs["cc02Ref"].validate(valid => {
+		proxy.$refs["cx02Ref"].validate(valid => { //获取前端校验效果
 			console.log(valid)
-			debugger
+			// debugger
 			if (valid) {
-				updateCC02(form.value).then(res => {
+				updateCC02(form.value).then(res => { //获取后端校验信息
 					console.log(res)
 					alert("更新成功！")
 				}).catch(err => {
@@ -615,11 +776,16 @@
 					console.log(err)
 				})
 			} else {
+				for (let index in proxy.$refs["cx02Ref"].fields) { // 获取前端校验信息
+					if (proxy.$refs["cx02Ref"].fields[index].validateState == 'error') {
+						errorsMsg.value[proxy.$refs["cx02Ref"].fields[index].prop].hasError = true
+					}
+				}
 				alert("表单校验不通过！")
 			}
 		})
 	}
-
+	//删除错误信息
 	function cleanWarning() {
 		for (let key in errorsMsg.value) {
 			errorsMsg.value[key] = {
@@ -628,6 +794,20 @@
 			}
 		}
 	}
+
+	/** 删除按钮操作 */
+	function handleDelete(row) {
+		const id = row.id;
+		// const h= this.$createElement
+		proxy.$modal.confirmHtml('是否确认删除ID为<span style="font-size:42px;color:red;">' + id + '</span>的数据项？').then(
+	function() {
+			return deleteCX02(id);
+		}).then(() => {
+			getList();
+			proxy.$modal.msgSuccess("删除成功");
+		}).catch(() => {});
+	};
+
 	/** 取消按钮 */
 	function cancel() {
 		open.value = false;
@@ -661,6 +841,20 @@
 		};
 		proxy.resetForm("cx02");
 	};
+
+	// 监听器计算实时计算字段值
+	watch(() => [form.value.m3_rltblbhszzl, form.value.m1_rlthblbzzl, form.value.ρT], ([m3, m1, ρT]) => {
+		if (ρT)
+			form.value.v1_rltrjdz = (m3 - m1) / ρT;
+		else
+			form.value.v1_rltrjdz = ''
+	});
+	watch(() => [form.value.m3_2_rltblbhszzl, form.value.m1_2_rlthblbzzl, form.value.ρT], ([m3, m1, ρT]) => {
+		if (ρT)
+			form.value.v1_2_rltrjdz = (m3 - m1) / ρT;
+		else
+			form.value.v1_2_rltrjdz = ''
+	});
 </script>
 
 <style scoped>
