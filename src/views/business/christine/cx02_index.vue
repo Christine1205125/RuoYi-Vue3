@@ -164,8 +164,24 @@
 					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
 						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程名称
 						</td>
-						<td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt"><span
-								style="mso-spacerun:yes">&nbsp;&nbsp; </span>string</td>
+						<td colspan="4" class="xl70" style="border-left: none; width: 199pt; padding: 0;">
+						    <el-form-item 
+						        prop="gcmc" 
+						        :rules="rules.gcmc.rules" 
+						        :error="errorsMsg.gcmc.errMsg" 
+						        :show-message="errorsMsg.gcmc.hasError"
+						        style="margin: 0;"
+						    >
+						        <el-input 
+						            v-model="form.gcmc" 
+						            clearable 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+						    <span style="display: none;">{{ form.gcmc }}</span>
+						</td>
+
 						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">合同段</td>
 						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt"><span
 								style="mso-spacerun:yes">&nbsp; </span>string</td>
@@ -800,9 +816,9 @@
 		const id = row.id;
 		// const h= this.$createElement
 		proxy.$modal.confirmHtml('是否确认删除ID为<span style="font-size:42px;color:red;">' + id + '</span>的数据项？').then(
-	function() {
-			return deleteCX02(id);
-		}).then(() => {
+			function() {
+				return deleteCX02(id);
+			}).then(() => {
 			getList();
 			proxy.$modal.msgSuccess("删除成功");
 		}).catch(() => {});
