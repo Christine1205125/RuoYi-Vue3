@@ -1472,6 +1472,7 @@
 	};
 
 	// 监听器计算实时计算字段值
+	//表1
 	watch(() => [form.value.m3_rltblbhszzl, form.value.m1_rlthblbzzl, form.value.ρT], ([m3, m1, ρT]) => {
 		if (ρT)
 			form.value.v1_rltrjdz = (m3 - m1) / ρT;
@@ -1480,9 +1481,56 @@
 	});
 	watch(() => [form.value.m3_2_rltblbhszzl, form.value.m1_2_rlthblbzzl, form.value.ρT], ([m3, m1, ρT]) => {
 		if (ρT)
-			form.value.v1_2_rltrjdz = (m3 - m1) / ρT;
+			form.value.v2_rltrjdz = (m3 - m1) / ρT;
 		else
-			form.value.v1_2_rltrjdz = ''
+			form.value.v2_rltrjdz = ''
+	});
+	watch(() => [form.value.v1_rltrjdz, form.value.v2_rltrjdz], ([v1,v2]) => {
+			form.value.v_pjz1 = (v1+v2) / 2;
+	});
+	//表2
+	watch(() => [form.value.m2_rlthdjsdzzl, form.value.mo, form.value.v_pjz1], ([m2, mo, v_pjz]) => {
+		if (v_pjz)
+			form.value.p1_djmddz = (m2 - mo) / v_pjz;
+		else
+			form.value.p1_djmddz = ''
+	});
+	watch(() => [form.value.m2_2_rlthdjsdzzl, form.value.mo, form.value.v_pjz1], ([m2, mo, v_pjz]) => {
+		if (v_pjz)
+			form.value.p2_djmddz = (m2 - mo) / v_pjz;
+		else
+			form.value.p2_djmddz = ''
+	});
+	watch(() => [form.value.p1_djmddz, form.value.p2_djmddz], ([p1,p2]) => {
+			form.value.p_pjz1 = (p1+p2) / 2;
+	});
+	watch(() => [form.value.p_pjz1, form.value.ρsha], ([p_pjz, ρsha]) => {
+		if (ρsha)
+			form.value.k = (1 - p_pjz/ρsha) *100;
+		else
+			form.value.k = ''
+	});
+	//表3
+	watch(() => [form.value.m4_rlthjzsdzzl, form.value.mo, form.value.v_pjz1], ([m4, mo, v_pjz]) => {
+		if (v_pjz)
+			form.value.y1_jzmddz = (m4 - mo) / v_pjz;
+		else
+			form.value.y1_jzmddz = ''
+	});
+	watch(() => [form.value.m4_2_rlthjzsdzzl, form.value.mo, form.value.v_pjz1], ([m4, mo, v_pjz]) => {
+		if (v_pjz)
+			form.value.y2_jzmddz = (m4 - mo) / v_pjz;
+		else
+			form.value.y2_jzmddz = ''
+	});
+	watch(() => [form.value.y1_jzmddz, form.value.y2_jzmddz], ([y1,y2]) => {
+			form.value.y_pjz1 = (y1+y2) / 2;
+	});
+	watch(() => [form.value.y_pjz1, form.value.ρsha], ([y_pjz, ρsha]) => {
+		if (ρsha)
+			form.value.t = (1 - y_pjz/ρsha) *100;
+		else
+			form.value.t = ''
 	});
 </script>
 
