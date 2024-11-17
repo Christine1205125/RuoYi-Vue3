@@ -131,347 +131,212 @@
 					</tr>
 
 					<tr height="40" style="mso-height-source: userset; height: 30.0pt;">
-					    <td colspan="2" height="40" class="xl81" style="height: 30.0pt">检测单位名称:</td>
-					    <td colspan="5" class="xl83" width="110" style="width: 82pt; padding-top: 3px;">
-					        <!-- 与前端校验规则进行绑定，限制校验信息是否输出 -->
-					        <el-form-item 
-					            prop="jcdwmc" 
-					            :rules="rules.jcdwmc.rules" 
-					            :error="errorsMsg.jcdwmc.errMsg" 
-					            :show-message="errorsMsg.jcdwmc.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.jcdwmc" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.jcdwmc }}</span>
-					        </el-form-item>
-					    </td>
-					    <td colspan="2" class="xl85" width="110" style="width: 82pt">记录编号:</td>
-					    <td colspan="2" class="xl83" width="110" style="width: 82pt; padding-top: 3px;">
-					        <el-form-item 
-					            prop="jlbh" 
-					            :rules="rules.jlbh.rules" 
-					            :error="errorsMsg.jlbh.errMsg" 
-					            :show-message="errorsMsg.jlbh.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.jlbh" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.jlbh }}</span>
-					        </el-form-item>
-					    </td>
+						<td colspan="2" height="40" class="xl81" style="height: 30.0pt">检测单位名称:</td>
+						<td colspan="5" class="xl83" width="110" style="width: 82pt; padding-top: 3px;">
+							<!-- 与前端校验规则进行绑定，限制校验信息是否输出 -->
+							<el-form-item prop="jcdwmc" :rules="rules.jcdwmc.rules" :error="errorsMsg.jcdwmc.errMsg"
+								:show-message="errorsMsg.jcdwmc.hasError" style="margin: 0;">
+								<el-input v-model="form.jcdwmc" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.jcdwmc }}</span>
+							</el-form-item>
+						</td>
+						<td colspan="2" class="xl85" width="110" style="width: 82pt">记录编号:</td>
+						<td colspan="2" class="xl83" width="110" style="width: 82pt; padding-top: 3px;">
+							<el-form-item prop="jlbh" :rules="rules.jlbh.rules" :error="errorsMsg.jlbh.errMsg"
+								:show-message="errorsMsg.jlbh.hasError" style="margin: 0;">
+								<el-input v-model="form.jlbh" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.jlbh }}</span>
+							</el-form-item>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
-					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程名称</td>
-					    <td colspan="4" class="xl70" style="border-left: none; width: 199pt; padding: 0;">
-					        <el-form-item 
-					            prop="gcmc" 
-					            :rules="rules.gcmc.rules" 
-					            :error="errorsMsg.gcmc.errMsg" 
-					            :show-message="errorsMsg.gcmc.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.gcmc" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.gcmc }}</span>
-					        </el-form-item>
-					    </td>
-					
-					    <td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">合同段</td>
-					    <td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
-					        <el-form-item 
-					            prop="htd" 
-					            :rules="rules.htd.rules" 
-					            :error="errorsMsg.htd.errMsg" 
-					            :show-message="errorsMsg.htd.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.htd" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.htd }}</span>
-					        </el-form-item>
-					    </td>
+						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程名称
+						</td>
+						<td colspan="4" class="xl70" style="border-left: none; width: 199pt; padding: 0;">
+							<el-form-item prop="gcmc" :rules="rules.gcmc.rules" :error="errorsMsg.gcmc.errMsg"
+								:show-message="errorsMsg.gcmc.hasError" style="margin: 0;">
+								<el-input v-model="form.gcmc" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.gcmc }}</span>
+							</el-form-item>
+						</td>
+
+						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">合同段</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
+							<el-form-item prop="htd" :rules="rules.htd.rules" :error="errorsMsg.htd.errMsg"
+								:show-message="errorsMsg.htd.hasError" style="margin: 0;">
+								<el-input v-model="form.htd" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.htd }}</span>
+							</el-form-item>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
-					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">施工单位</td>
-					    <td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">
-					        <el-form-item 
-					            prop="sgdw" 
-					            :rules="rules.sgdw.rules" 
-					            :error="errorsMsg.sgdw.errMsg" 
-					            :show-message="errorsMsg.sgdw.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.sgdw" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.sgdw }}</span>
-					        </el-form-item>
-					    </td>
-					    <td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">监理单位</td>
-					    <td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
-					        <el-form-item 
-					            prop="jl dw" 
-					            :rules="rules.jldw.rules" 
-					            :error="errorsMsg.jldw.errMsg" 
-					            :show-message="errorsMsg.jldw.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.jldw" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.jldw }}</span>
-					        </el-form-item>
-					    </td>
+						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">施工单位
+						</td>
+						<td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">
+							<el-form-item prop="sgdw" :rules="rules.sgdw.rules" :error="errorsMsg.sgdw.errMsg"
+								:show-message="errorsMsg.sgdw.hasError" style="margin: 0;">
+								<el-input v-model="form.sgdw" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.sgdw }}</span>
+							</el-form-item>
+						</td>
+						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">监理单位</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
+							<el-form-item prop="jl dw" :rules="rules.jldw.rules" :error="errorsMsg.jldw.errMsg"
+								:show-message="errorsMsg.jldw.hasError" style="margin: 0;">
+								<el-input v-model="form.jldw" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.jldw }}</span>
+							</el-form-item>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
-					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程部位/用途</td>
-					    <td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt">
-					        <el-form-item 
-					            prop="gcbw_yt" 
-					            :rules="rules.gcbw_yt.rules" 
-					            :error="errorsMsg.gcbw_yt.errMsg" 
-					            :show-message="errorsMsg.gcbw_yt.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.gcbw_yt" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.gcbw_yt }}</span>
-					        </el-form-item>
-					    </td>
+						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">工程部位/用途
+						</td>
+						<td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt">
+							<el-form-item prop="gcbw_yt" :rules="rules.gcbw_yt.rules" :error="errorsMsg.gcbw_yt.errMsg"
+								:show-message="errorsMsg.gcbw_yt.hasError" style="margin: 0;">
+								<el-input v-model="form.gcbw_yt" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.gcbw_yt }}</span>
+							</el-form-item>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
-					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">样品信息</td>
-					    <td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt">
-					        <el-form-item 
-					            prop="ypxx" 
-					            :rules="rules.ypxx.rules" 
-					            :error="errorsMsg.ypxx.errMsg" 
-					            :show-message="errorsMsg.ypxx.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.ypxx" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.ypxx }}</span>
-					        </el-form-item>
-					    </td>
+						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">样品信息
+						</td>
+						<td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt">
+							<el-form-item prop="ypxx" :rules="rules.ypxx.rules" :error="errorsMsg.ypxx.errMsg"
+								:show-message="errorsMsg.ypxx.hasError" style="margin: 0;">
+								<el-input v-model="form.ypxx" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.ypxx }}</span>
+							</el-form-item>
+						</td>
 					</tr>
 					<tr height="41" style="mso-height-source: userset; height: 31.15pt;">
 						<td colspan="2" height="41" class="xl87" width="112" style="height: 31.15pt; width: 84pt">试验检测日期
 						</td>
 						<td colspan="4" class="xl70" width="266" style="border-left: none; width: 199pt; padding: 0;">
-						    <el-form-item 
-						        prop="syjcrq" 
-						        :rules="rules.syjcrq.rules" 
-						        :error="errorsMsg.syjcrq.errMsg" 
-						        :show-message="errorsMsg.syjcrq.hasError" 
-						        style="margin: 0; height: 100%;">
-						        <el-date-picker
-						            v-model="form.syjcrq"
-						            type="date"
-						            value-format="YYYY-MM-DD 00:00:00"
-						            style="width: 100%; height: 100%; box-sizing: border-box;">
-						        </el-date-picker>
-						    </el-form-item>
-						    <span style="display: none;">{{ form.syjcrq }}</span>
+							<el-form-item prop="syjcrq" :rules="rules.syjcrq.rules" :error="errorsMsg.syjcrq.errMsg"
+								:show-message="errorsMsg.syjcrq.hasError" style="margin: 0; height: 100%;">
+								<el-date-picker v-model="form.syjcrq" type="date" value-format="YYYY-MM-DD 00:00:00"
+									style="width: 100%; height: 100%; box-sizing: border-box;">
+								</el-date-picker>
+							</el-form-item>
+							<span style="display: none;">{{ form.syjcrq }}</span>
 						</td>
 						<td colspan="2" class="xl70" width="110" style="border-left:none; width:82pt">试验条件</td>
 						<td colspan="3" class="xl94" style="border-left: none; width: 123pt; padding: 0;">
-						    <el-form-item 
-						        prop="sytj" 
-						        :rules="rules.sytj.rules" 
-						        :error="errorsMsg.sytj.errMsg" 
-						        :show-message="errorsMsg.sytj.hasError"
-						        style="margin: 0;"
-						    >
-						        <el-input 
-						            v-model="form.sytj" 
-						            clearable 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-						    <span style="display: none;">{{ form.sytj }}</span>
+							<el-form-item prop="sytj" :rules="rules.sytj.rules" :error="errorsMsg.sytj.errMsg"
+								:show-message="errorsMsg.sytj.hasError" style="margin: 0;">
+								<el-input v-model="form.sytj" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+							<span style="display: none;">{{ form.sytj }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
-					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">检测依据</td>
-					    <td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">
-					        <el-form-item 
-					            prop="jcyj" 
-					            :rules="rules.jcyj.rules" 
-					            :error="errorsMsg.jcyj.errMsg" 
-					            :show-message="errorsMsg.jcyj.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.jcyj" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.jcyj }}</span>
-					        </el-form-item>
-					    </td>
-					    <td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">判定依据</td>
-					    <td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
-					        <el-form-item 
-					            prop="pdyj" 
-					            :rules="rules.pdyj.rules" 
-					            :error="errorsMsg.pdyj.errMsg" 
-					            :show-message="errorsMsg.pdyj.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.pdyj" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.pdyj }}</span>
-					        </el-form-item>
-					    </td>
+						<td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">检测依据
+						</td>
+						<td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">
+							<el-form-item prop="jcyj" :rules="rules.jcyj.rules" :error="errorsMsg.jcyj.errMsg"
+								:show-message="errorsMsg.jcyj.hasError" style="margin: 0;">
+								<el-input v-model="form.jcyj" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.jcyj }}</span>
+							</el-form-item>
+						</td>
+						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">判定依据</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
+							<el-form-item prop="pdyj" :rules="rules.pdyj.rules" :error="errorsMsg.pdyj.errMsg"
+								:show-message="errorsMsg.pdyj.hasError" style="margin: 0;">
+								<el-input v-model="form.pdyj" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.pdyj }}</span>
+							</el-form-item>
+						</td>
 					</tr>
 					<tr height="40" style="mso-height-source: userset; height: 30.0pt;">
-					    <td colspan="2" height="40" class="xl87" width="112" style="height: 30.0pt; width: 84pt">
-					        主要仪器设备<br>名称及编号
-					    </td>
-					    <td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt">
-					        <el-form-item 
-					            prop="zyyqsbmcjbh" 
-					            :rules="rules.zyyqsbmcjbh.rules" 
-					            :error="errorsMsg.zyyqsbmcjbh.errMsg" 
-					            :show-message="errorsMsg.zyyqsbmcjbh.hasError"
-					            style="margin: 0;"
-					        >
-					            <el-input 
-					                v-model="form.zyyqsbmcjbh" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-					            <span style="display: none;">{{ form.zyyqsbmcjbh }}</span>
-					        </el-form-item>
-					    </td>
+						<td colspan="2" height="40" class="xl87" width="112" style="height: 30.0pt; width: 84pt">
+							主要仪器设备<br>名称及编号
+						</td>
+						<td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt">
+							<el-form-item prop="zyyqsbmcjbh" :rules="rules.zyyqsbmcjbh.rules"
+								:error="errorsMsg.zyyqsbmcjbh.errMsg" :show-message="errorsMsg.zyyqsbmcjbh.hasError"
+								style="margin: 0;">
+								<el-input v-model="form.zyyqsbmcjbh" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.zyyqsbmcjbh }}</span>
+							</el-form-item>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" height="30" class="xl87" width="112" style="height:22.9pt;width:84pt">取样地点</td>
 						<td class="xl72" width="97" style="border-top:none;border-left:none;width:73pt">
-						    <el-form-item 
-						        prop="qydd" 
-						        :rules="rules.qydd.rules" 
-						        :error="errorsMsg.qydd.errMsg" 
-						        :show-message="errorsMsg.qydd.hasError"
-						        style="margin: 0;"
-						    >
-						        <el-input 
-						            v-model="form.qydd" 
-						            clearable 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						        <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
-						        <span style="display: none;">{{ form.qydd }}</span>
-						    </el-form-item>
+							<el-form-item prop="qydd" :rules="rules.qydd.rules" :error="errorsMsg.qydd.errMsg"
+								:show-message="errorsMsg.qydd.hasError" style="margin: 0;">
+								<el-input v-model="form.qydd" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+								<!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+								<span style="display: none;">{{ form.qydd }}</span>
+							</el-form-item>
 						</td>
 						<td class="xl72" width="67" style="border-top:none;width:50pt">取样日期</td>
 						<td colspan="2" class="xl72" width="102" style="width:76pt">
-						    <el-form-item 
-						        prop="qyrq" 
-						        :rules="rules.qyrq.rules" 
-						        :error="errorsMsg.qyrq.errMsg" 
-						        :show-message="errorsMsg.qyrq.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-date-picker
-						            v-model="form.qyrq"
-						            type="date"
-						            value-format="YYYY-MM-DD"
-						            style="width: 100%; height: 100%; box-sizing: border-box;">
-						        </el-date-picker>
-						    </el-form-item>
-						    <span style="display: none;">{{ form.qyrq }}</span>
+							<el-form-item prop="qyrq" :rules="rules.qyrq.rules" :error="errorsMsg.qyrq.errMsg"
+								:show-message="errorsMsg.qyrq.hasError" style="margin: 0; height: 100%;">
+								<el-date-picker v-model="form.qyrq" type="date" value-format="YYYY-MM-DD"
+									style="width: 100%; height: 100%; box-sizing: border-box;">
+								</el-date-picker>
+							</el-form-item>
+							<span style="display: none;">{{ form.qyrq }}</span>
 						</td>
 						<td colspan="2" class="xl70" width="110" style="width:82pt">代表数量(m³)</td>
 						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
-						    <el-form-item 
-						        prop="dbsl" 
-						        :rules="rules.dbsl.rules" 
-						        :error="errorsMsg.dbsl.errMsg" 
-						        :show-message="errorsMsg.dbsl.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.dbsl" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.dbsl }}</span>
+							<el-form-item prop="dbsl" :rules="rules.dbsl.rules" :error="errorsMsg.dbsl.errMsg"
+								:show-message="errorsMsg.dbsl.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.dbsl" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.dbsl }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
-					    <td colspan="2" height="30" class="xl87" width="112" style="height:22.9pt;width:84pt">集料产地</td>
-					    <td colspan="4" class="xl70" width="266" style="border-left:none;width:199pt">
-					        <el-form-item 
-					            prop="jlcd" 
-					            :rules="rules.jlcd.rules" 
-					            :error="errorsMsg.jlcd.errMsg" 
-					            :show-message="errorsMsg.jlcd.hasError"
-					            style="margin: 0; height: 100%;">
-					            <el-input 
-					                v-model="form.jlcd" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					        </el-form-item>
-					        <span style="display: none;">{{ form.jlcd }}</span>
-					    </td>
-					    <td colspan="2" class="xl70" width="110" style="border-left:none;width:82pt">品种规格</td>
-					    <td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
-					        <el-form-item 
-					            prop="pzgg" 
-					            :rules="rules.pzgg.rules" 
-					            :error="errorsMsg.pzgg.errMsg" 
-					            :show-message="errorsMsg.pzgg.hasError"
-					            style="margin: 0; height: 100%;">
-					            <el-input 
-					                v-model="form.pzgg" 
-					                clearable 
-					                style="width: 100%; height: 100%; box-sizing: border-box;"
-					            />
-					        </el-form-item>
-					        <span style="display: none;">{{ form.pzgg }}</span>
-					    </td>
+						<td colspan="2" height="30" class="xl87" width="112" style="height:22.9pt;width:84pt">集料产地</td>
+						<td colspan="4" class="xl70" width="266" style="border-left:none;width:199pt">
+							<el-form-item prop="jlcd" :rules="rules.jlcd.rules" :error="errorsMsg.jlcd.errMsg"
+								:show-message="errorsMsg.jlcd.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.jlcd" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.jlcd }}</span>
+						</td>
+						<td colspan="2" class="xl70" width="110" style="border-left:none;width:82pt">品种规格</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+							<el-form-item prop="pzgg" :rules="rules.pzgg.rules" :error="errorsMsg.pzgg.errMsg"
+								:show-message="errorsMsg.pzgg.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.pzgg" clearable
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.pzgg }}</span>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">试验次数</td>
@@ -483,287 +348,214 @@
 							style="height:91.6pt;border-top:none;width:42pt">容量筒容积校正</td>
 						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和玻璃板总质量(g)</td>
 						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
-						    <el-form-item 
-						        prop="m1_rlthblbzzl" 
-						        :rules="rules.m1_rlthblbzzl.rules" 
-						        :error="errorsMsg.m1_rlthblbzzl.errMsg" 
-						        :show-message="errorsMsg.m1_rlthblbzzl.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.m1_rlthblbzzl" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.m1_rlthblbzzl }}</span>
+							<el-form-item prop="m1_rlthblbzzl" :rules="rules.m1_rlthblbzzl.rules"
+								:error="errorsMsg.m1_rlthblbzzl.errMsg" :show-message="errorsMsg.m1_rlthblbzzl.hasError"
+								style="margin: 0; height: 100%;">
+								<el-input v-model="form.m1_rlthblbzzl" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.m1_rlthblbzzl }}</span>
 						</td>
 						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
-						    <el-form-item 
-						        prop="m1_2_rlthblbzzl" 
-						        :rules="rules.m1_2_rlthblbzzl.rules" 
-						        :error="errorsMsg.m1_2_rlthblbzzl.errMsg" 
-						        :show-message="errorsMsg.m1_2_rlthblbzzl.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.m1_2_rlthblbzzl" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.m1_2_rlthblbzzl }}</span>
+							<el-form-item prop="m1_2_rlthblbzzl" :rules="rules.m1_2_rlthblbzzl.rules"
+								:error="errorsMsg.m1_2_rlthblbzzl.errMsg"
+								:show-message="errorsMsg.m1_2_rlthblbzzl.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.m1_2_rlthblbzzl" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.m1_2_rlthblbzzl }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
-						<td colspan="4" height="30" class="xl70" width="267" style="height:22.9pt;border-left:none;width:200pt">容量筒、玻璃板和水总质量(g)</td>
+						<td colspan="4" height="30" class="xl70" width="267"
+							style="height:22.9pt;border-left:none;width:200pt">容量筒、玻璃板和水总质量(g)</td>
 						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
-						    <el-form-item 
-						        prop="m3_rltblbhszzl" 
-						        :rules="rules.m3_rltblbhszzl.rules" 
-						        :error="errorsMsg.m3_rltblbhszzl.errMsg" 
-						        :show-message="errorsMsg.m3_rltblbhszzl.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.m3_rltblbhszzl" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.m3_rltblbhszzl }}</span>
+							<el-form-item prop="m3_rltblbhszzl" :rules="rules.m3_rltblbhszzl.rules"
+								:error="errorsMsg.m3_rltblbhszzl.errMsg"
+								:show-message="errorsMsg.m3_rltblbhszzl.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.m3_rltblbhszzl" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.m3_rltblbhszzl }}</span>
 						</td>
 						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
-						    <el-form-item 
-						        prop="m3_2_rltblbhszzl" 
-						        :rules="rules.m3_2_rltblbhszzl.rules" 
-						        :error="errorsMsg.m3_2_rltblbhszzl.errMsg" 
-						        :show-message="errorsMsg.m3_2_rltblbhszzl.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.m3_2_rltblbhszzl" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.m3_2_rltblbhszzl }}</span>
+							<el-form-item prop="m3_2_rltblbhszzl" :rules="rules.m3_2_rltblbhszzl.rules"
+								:error="errorsMsg.m3_2_rltblbhszzl.errMsg"
+								:show-message="errorsMsg.m3_2_rltblbhszzl.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.m3_2_rltblbhszzl" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.m3_2_rltblbhszzl }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" rowspan="2" height="60" class="xl70" width="153"
 							style="height:45.8pt;width:115pt">容量筒容积(mL)</td>
 						<td colspan="2" class="xl70" width="114" style="border-left:none;width:85pt">单值</td>
-						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">V=(M3-M1)/ρ_T</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">同左</td>
+						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
+							{{form.v1_rltrjdz}}
+							<span class="hidden-span">{{form.v1_rltrjdz}}</span>
+						</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+							{{form.v2_rltrjdz}}
+							<!-- <span class="hidden-span">{{form.v2_rltrjdz}}</span> -->
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" height="30" class="xl70" width="114"
 							style="height:22.9pt;border-left:none;width:85pt">平均值</td>
-						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">V的平均值</td>
-					</tr>
-					<tr height="30" style="mso-height-source:userset;height:22.9pt">
-						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">
-						    试验温度T时水的密度
-						</td>
 						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
-						    <el-form-item 
-						        prop="ρT" 
-						        :rules="rules.ρT.rules" 
-						        :error="errorsMsg.ρT.errMsg" 
-						        :show-message="errorsMsg.ρT.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.ρT" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.ρT }}</span>
+							{{form.v_pjz1}}
+							<span class="hidden-span">{{form.v_pjz1}}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">
-						    砂的表观密度(g/cm³)
+							试验温度T时水的密度
 						</td>
 						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
-						    <el-form-item 
-						        prop="ρsha" 
-						        :rules="rules.ρsha.rules" 
-						        :error="errorsMsg.ρsha.errMsg" 
-						        :show-message="errorsMsg.ρsha.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.ρsha" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.ρsha }}</span>
+							<el-form-item prop="ρT" :rules="rules.ρT.rules" :error="errorsMsg.ρT.errMsg"
+								:show-message="errorsMsg.ρT.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.ρT" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.ρT }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
-						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">容量筒质量(g)</td>
+						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">
+							砂的表观密度(g/cm³)
+						</td>
 						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
-						    <el-form-item 
-						        prop="mo" 
-						        :rules="rules.mo.rules" 
-						        :error="errorsMsg.mo.errMsg" 
-						        :show-message="errorsMsg.mo.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.mo" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.mo }}</span>
+							<el-form-item prop="ρsha" :rules="rules.ρsha.rules" :error="errorsMsg.ρsha.errMsg"
+								:show-message="errorsMsg.ρsha.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.ρsha" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.ρsha }}</span>
+						</td>
+					</tr>
+					<tr height="30" style="mso-height-source:userset;height:22.9pt">
+						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">容量筒质量(g)
+						</td>
+						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
+							<el-form-item prop="mo" :rules="rules.mo.rules" :error="errorsMsg.mo.errMsg"
+								:show-message="errorsMsg.mo.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.mo" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.mo }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td rowspan="4" height="120" class="xl87" width="56"
 							style="height:91.6pt;border-top:none;width:42pt">堆积密度及空隙率</td>
-						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和堆积砂的总质量(g)</td>
+						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和堆积砂的总质量(g)
+						</td>
 						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
-						    <el-form-item 
-						        prop="m2_rlthdjsdzzl" 
-						        :rules="rules.m2_rlthdjsdzzl.rules" 
-						        :error="errorsMsg.m2_rlthdjsdzzl.errMsg" 
-						        :show-message="errorsMsg.m2_rlthdjsdzzl.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.m2_rlthdjsdzzl" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.m2_rlthdjsdzzl }}</span>
+							<el-form-item prop="m2_rlthdjsdzzl" :rules="rules.m2_rlthdjsdzzl.rules"
+								:error="errorsMsg.m2_rlthdjsdzzl.errMsg"
+								:show-message="errorsMsg.m2_rlthdjsdzzl.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.m2_rlthdjsdzzl" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.m2_rlthdjsdzzl }}</span>
 						</td>
 						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
-						    <el-form-item 
-						        prop="m2_2_rlthdjsdzzl" 
-						        :rules="rules.m2_2_rlthdjsdzzl.rules" 
-						        :error="errorsMsg.m2_2_rlthdjsdzzl.errMsg" 
-						        :show-message="errorsMsg.m2_2_rlthdjsdzzl.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.m2_2_rlthdjsdzzl" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.m2_2_rlthdjsdzzl }}</span>
+							<el-form-item prop="m2_2_rlthdjsdzzl" :rules="rules.m2_2_rlthdjsdzzl.rules"
+								:error="errorsMsg.m2_2_rlthdjsdzzl.errMsg"
+								:show-message="errorsMsg.m2_2_rlthdjsdzzl.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.m2_2_rlthdjsdzzl" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.m2_2_rlthdjsdzzl }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" rowspan="2" height="60" class="xl70" width="153"
 							style="height:45.8pt;width:115pt">堆积密度(g/cm³)</td>
 						<td colspan="2" class="xl70" width="114" style="border-left:none;width:85pt">单值</td>
-						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">P=(M2-M0)/V的平均值
+						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
+							{{form.p1_djmddz}}
+							<!-- <span class="hidden-span">{{form.p1_djmddz}}</span> -->
 						</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">同左</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+							{{form.p2_djmddz}}
+							<!-- <span class="hidden-span">{{form.p2_djmddz}}</span> -->
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" height="30" class="xl70" width="114"
 							style="height:22.9pt;border-left:none;width:85pt">平均值</td>
-						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">P的平均值</td>
+						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
+							{{form.p_pjz1}}
+							<!-- <span class="hidden-span">{{form.p_pjz1}}</span> -->
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="4" height="30" class="xl70" width="267"
 							style="height:22.9pt;border-left:none;width:200pt">堆积空隙率(%)</td>
 						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
-							K=(1-P的平均值/ρ_砂)*100</td>
+							{{form.k}}</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td rowspan="4" height="120" class="xl87" width="56"
 							style="height:91.6pt;border-top:none;width:42pt">紧装密度及空隙率</td>
-						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和紧装砂的总质量(g)</td>
+						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和紧装砂的总质量(g)
+						</td>
 						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
-						    <el-form-item 
-						        prop="m4_rlthjzsdzzl" 
-						        :rules="rules.m4_rlthjzsdzzl.rules" 
-						        :error="errorsMsg.m4_rlthjzsdzzl.errMsg" 
-						        :show-message="errorsMsg.m4_rlthjzsdzzl.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.m4_rlthjzsdzzl" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.m4_rlthjzsdzzl }}</span>
+							<el-form-item prop="m4_rlthjzsdzzl" :rules="rules.m4_rlthjzsdzzl.rules"
+								:error="errorsMsg.m4_rlthjzsdzzl.errMsg"
+								:show-message="errorsMsg.m4_rlthjzsdzzl.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.m4_rlthjzsdzzl" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.m4_rlthjzsdzzl }}</span>
 						</td>
 						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
-						    <el-form-item 
-						        prop="m4_2_rlthjzsdzzl" 
-						        :rules="rules.m4_2_rlthjzsdzzl.rules" 
-						        :error="errorsMsg.m4_2_rlthjzsdzzl.errMsg" 
-						        :show-message="errorsMsg.m4_2_rlthjzsdzzl.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.m4_2_rlthjzsdzzl" 
-						            clearable 
-						            type="number" 
-						            step="0.01" 
-						            style="width: 100%; height: 100%; box-sizing: border-box;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.m4_2_rlthjzsdzzl }}</span>
+							<el-form-item prop="m4_2_rlthjzsdzzl" :rules="rules.m4_2_rlthjzsdzzl.rules"
+								:error="errorsMsg.m4_2_rlthjzsdzzl.errMsg"
+								:show-message="errorsMsg.m4_2_rlthjzsdzzl.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.m4_2_rlthjzsdzzl" clearable type="number" step="0.01"
+									style="width: 100%; height: 100%; box-sizing: border-box;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.m4_2_rlthjzsdzzl }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" rowspan="2" height="60" class="xl70" width="153"
 							style="height:45.8pt;width:115pt">紧装密度(g/cm³)</td>
 						<td colspan="2" class="xl70" width="114" style="border-left:none;width:85pt">单值</td>
-						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">Y=(M4-M0)/V的平均值
+						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
+							{{form.y1_jzmddz}}
 						</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">同左</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+							{{form.y2_jzmddz}}
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" height="30" class="xl70" width="114"
 							style="height:22.9pt;border-left:none;width:85pt">平均值</td>
-						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">Y的平均值</td>
+						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
+							{{form.y_pjz1}}
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="4" height="30" class="xl70" width="267"
 							style="height:22.9pt;border-left:none;width:200pt">紧装空隙率(%)</td>
 						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
-							T=(1-Y的平均值/ρ_砂)*100</td>
+							{{form.t}}</td>
 					</tr>
 					<tr height="60" style="mso-height-source:userset;height:45.0pt">
-						<td colspan="11" height="60" class="xl121" width="653" style="height:45.0pt;width:488pt;text-align: left; padding-left: 0;">
-						    附加声明：
-						    <el-form-item 
-						        prop="fjsm" 
-						        :rules="rules.fjsm.rules" 
-						        :error="errorsMsg.fjsm.errMsg" 
-						        :show-message="errorsMsg.fjsm.hasError"
-						        style="margin: 0; height: 100%;">
-						        <el-input 
-						            v-model="form.fjsm" 
-						            clearable 
-						            type="textarea" 
-						            rows="2" 
-						            style="width: 100%; height: 100%; box-sizing: border-box; margin-top: 10px;"
-						        />
-						    </el-form-item>
-						    <span style="display: none;">{{ form.fjsm }}</span>
+						<td colspan="11" height="60" class="xl121" width="653"
+							style="height:45.0pt;width:488pt;text-align: left; padding-left: 0;">
+							附加声明：
+							<el-form-item prop="fjsm" :rules="rules.fjsm.rules" :error="errorsMsg.fjsm.errMsg"
+								:show-message="errorsMsg.fjsm.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.fjsm" clearable type="textarea" rows="2"
+									style="width: 100%; height: 100%; box-sizing: border-box; margin-top: 10px;" />
+							</el-form-item>
+							<span style="display: none;">{{ form.fjsm }}</span>
 						</td>
 					</tr>
 					<tr height="35" style="mso-height-source:userset;height:26.25pt">
@@ -862,32 +654,32 @@
 			dbsl: undefined, // 代表数量(m^3)
 			jlcd: undefined, // 集料产地
 			pzgg: undefined, // 品种规格
-			m1_rlthblbzzl:undefined,
-			m1_2_rlthblbzzl:undefined,
-			m3_rltblbhszzl:undefined,
-			m3_2_rltblbhszzl:undefined,
-			v1_rltrjdz:undefined,
-			v2_rltrjdz:undefined,
-			v_pjz1:undefined,
-			v_pjz2:undefined,
-			ρT:undefined,
-			ρsha:undefined,
-			mo:undefined,
-			m2_rlthdjsdzzl:undefined,
-			m2_2_rlthdjsdzzl:undefined,
-			p1_djmddz:undefined,
-			p2_djmddz:undefined,
-			p_pjz1:undefined,
-			p_pjz2:undefined,
-			k:undefined,
-			m4_rlthjzsdzzl:undefined,
-			m4_2_rlthjzsdzzl:undefined,
-			y1_jzmddz:undefined,
-			y2_jzmddz:undefined,
-			y_pjz1:undefined,
-			y_pjz2:undefined,
-			t:undefined,
-			fjsm:undefined,
+			m1_rlthblbzzl: undefined,
+			m1_2_rlthblbzzl: undefined,
+			m3_rltblbhszzl: undefined,
+			m3_2_rltblbhszzl: undefined,
+			v1_rltrjdz: undefined,
+			v2_rltrjdz: undefined,
+			v_pjz1: undefined,
+			v_pjz2: undefined,
+			ρT: undefined,
+			ρsha: undefined,
+			mo: undefined,
+			m2_rlthdjsdzzl: undefined,
+			m2_2_rlthdjsdzzl: undefined,
+			p1_djmddz: undefined,
+			p2_djmddz: undefined,
+			p_pjz1: undefined,
+			p_pjz2: undefined,
+			k: undefined,
+			m4_rlthjzsdzzl: undefined,
+			m4_2_rlthjzsdzzl: undefined,
+			y1_jzmddz: undefined,
+			y2_jzmddz: undefined,
+			y_pjz1: undefined,
+			y_pjz2: undefined,
+			t: undefined,
+			fjsm: undefined,
 		},
 		queryParams: {
 			jcdwmc: undefined,
@@ -905,32 +697,32 @@
 			qydd: undefined,
 			jlcd: undefined,
 			pzgg: undefined,
-			m1_rlthblbzzl:undefined,
-			m1_2_rlthblbzzl:undefined,
-			m3_rltblbhszzl:undefined,
-			m3_2_rltblbhszzl:undefined,
-			v1_rltrjdz:undefined,
-			v2_rltrjdz:undefined,
-			v_pjz1:undefined,
-			v_pjz2:undefined,
-			ρT:undefined,
-			ρsha:undefined,
-			mo:undefined,
-			m2_rlthdjsdzzl:undefined,
-			m2_2_rlthdjsdzzl:undefined,
-			p1_djmddz:undefined,
-			p2_djmddz:undefined,
-			p_pjz1:undefined,
-			p_pjz2:undefined,
-			k:undefined,
-			m4_rlthjzsdzzl:undefined,
-			m4_2_rlthjzsdzzl:undefined,
-			y1_jzmddz:undefined,
-			y2_jzmddz:undefined,
-			y_pjz1:undefined,
-			y_pjz2:undefined,
-			t:undefined,
-			fjsm:undefined,
+			m1_rlthblbzzl: undefined,
+			m1_2_rlthblbzzl: undefined,
+			m3_rltblbhszzl: undefined,
+			m3_2_rltblbhszzl: undefined,
+			v1_rltrjdz: undefined,
+			v2_rltrjdz: undefined,
+			v_pjz1: undefined,
+			v_pjz2: undefined,
+			ρT: undefined,
+			ρsha: undefined,
+			mo: undefined,
+			m2_rlthdjsdzzl: undefined,
+			m2_2_rlthdjsdzzl: undefined,
+			p1_djmddz: undefined,
+			p2_djmddz: undefined,
+			p_pjz1: undefined,
+			p_pjz2: undefined,
+			k: undefined,
+			m4_rlthjzsdzzl: undefined,
+			m4_2_rlthjzsdzzl: undefined,
+			y1_jzmddz: undefined,
+			y2_jzmddz: undefined,
+			y_pjz1: undefined,
+			y_pjz2: undefined,
+			t: undefined,
+			fjsm: undefined,
 
 			pageNum: 1,
 			pageSize: 10,
@@ -1106,10 +898,9 @@
 			},
 			dbsl: {
 				rules: [{
-						required: true,
-						message: '代表数量不能为空！'
-					},
-				]
+					required: true,
+					message: '代表数量不能为空！'
+				}, ]
 			},
 
 			jlcd: {
@@ -1134,88 +925,76 @@
 					}
 				]
 			},
-			m1_rlthblbzzl:{
+			m1_rlthblbzzl: {
 				rules: [{
-						required: true,
-						message: '容量筒和玻璃板总质量不能为空！'
-					},
-				]
+					required: true,
+					message: '容量筒和玻璃板总质量不能为空！'
+				}, ]
 			},
-			m1_2_rlthblbzzl:{
+			m1_2_rlthblbzzl: {
 				rules: [{
-						required: true,
-						message: '容量筒和玻璃板总质量不能为空！'
-					},
-				]
+					required: true,
+					message: '容量筒和玻璃板总质量不能为空！'
+				}, ]
 			},
-			m3_rltblbhszzl:{
+			m3_rltblbhszzl: {
 				rules: [{
-						required: true,
-						message: '容量筒、玻璃板和水总质量不能为空！'
-					},
-				]
+					required: true,
+					message: '容量筒、玻璃板和水总质量不能为空！'
+				}, ]
 			},
-			m3_2_rltblbhszzl:{
+			m3_2_rltblbhszzl: {
 				rules: [{
-						required: true,
-						message: '容量筒、玻璃板和水总质量不能为空！'
-					},
-				]
+					required: true,
+					message: '容量筒、玻璃板和水总质量不能为空！'
+				}, ]
 			},
-			ρT:{
+			ρT: {
 				rules: [{
-						required: true,
-						message: '试验温度T时水的密度不能为空！'
-					},
-				]
+					required: true,
+					message: '试验温度T时水的密度不能为空！'
+				}, ]
 			},
-			ρsha:{
+			ρsha: {
 				rules: [{
-						required: true,
-						message: '砂的表观密度不能为空！'
-					},
-				]
+					required: true,
+					message: '砂的表观密度不能为空！'
+				}, ]
 			},
-			mo:{
+			mo: {
 				rules: [{
-						required: true,
-						message: '容量筒质量不能为空！'
-					},
-				]
+					required: true,
+					message: '容量筒质量不能为空！'
+				}, ]
 			},
-			m2_rlthdjsdzzl:{
+			m2_rlthdjsdzzl: {
 				rules: [{
-						required: true,
-						message: '容量筒和堆积砂的总质量不能为空！'
-					},
-				]
+					required: true,
+					message: '容量筒和堆积砂的总质量不能为空！'
+				}, ]
 			},
-			m2_2_rlthdjsdzzl:{
+			m2_2_rlthdjsdzzl: {
 				rules: [{
-						required: true,
-						message: '容量筒和堆积砂的总质量不能为空！'
-					},
-				]
+					required: true,
+					message: '容量筒和堆积砂的总质量不能为空！'
+				}, ]
 			},
-			m4_rlthjzsdzzl:{
+			m4_rlthjzsdzzl: {
 				rules: [{
-						required: true,
-						message: '容量筒和紧装砂的总质量不能为空！'
-					},
-				]
+					required: true,
+					message: '容量筒和紧装砂的总质量不能为空！'
+				}, ]
 			},
-			m4_2_rlthjzsdzzl:{
+			m4_2_rlthjzsdzzl: {
 				rules: [{
-						required: true,
-						message: '容量筒和紧装砂的总质量不能为空！'
-					},
-				]
+					required: true,
+					message: '容量筒和紧装砂的总质量不能为空！'
+				}, ]
 			},
-			fjsm:{
+			fjsm: {
 				rules: [{
-						required: true,
-					},
-				]
+					required: true,
+				}, ]
 			},
 
 		}, //endrules
@@ -1294,51 +1073,51 @@
 				hasError: false,
 				errMsg: ""
 			},
-			m1_rlthblbzzl:{
+			m1_rlthblbzzl: {
 				hasError: false,
 				errMsg: ""
 			},
-			m1_2_rlthblbzzl:{
+			m1_2_rlthblbzzl: {
 				hasError: false,
 				errMsg: ""
 			},
-			m3_rltblbhszzl:{
+			m3_rltblbhszzl: {
 				hasError: false,
 				errMsg: ""
 			},
-			m3_2_rltblbhszzl:{
+			m3_2_rltblbhszzl: {
 				hasError: false,
 				errMsg: ""
 			},
-			ρT:{
+			ρT: {
 				hasError: false,
 				errMsg: ""
 			},
-			ρsha:{
+			ρsha: {
 				hasError: false,
 				errMsg: ""
 			},
-			mo:{
+			mo: {
 				hasError: false,
 				errMsg: ""
 			},
-			m2_rlthdjsdzzl:{
+			m2_rlthdjsdzzl: {
 				hasError: false,
 				errMsg: ""
 			},
-			m2_2_rlthdjsdzzl:{
+			m2_2_rlthdjsdzzl: {
 				hasError: false,
 				errMsg: ""
 			},
-			m4_rlthjzsdzzl:{
+			m4_rlthjzsdzzl: {
 				hasError: false,
 				errMsg: ""
 			},
-			m4_2_rlthjzsdzzl:{
+			m4_2_rlthjzsdzzl: {
 				hasError: false,
 				errMsg: ""
 			},
-			fjsm:{
+			fjsm: {
 				hasError: false,
 				errMsg: ""
 			},
@@ -1485,8 +1264,8 @@
 		else
 			form.value.v2_rltrjdz = ''
 	});
-	watch(() => [form.value.v1_rltrjdz, form.value.v2_rltrjdz], ([v1,v2]) => {
-			form.value.v_pjz1 = (v1+v2) / 2;
+	watch(() => [form.value.v1_rltrjdz, form.value.v2_rltrjdz], ([v1, v2]) => {
+		form.value.v_pjz1 = (v1 + v2) / 2;
 	});
 	//表2
 	watch(() => [form.value.m2_rlthdjsdzzl, form.value.mo, form.value.v_pjz1], ([m2, mo, v_pjz]) => {
@@ -1501,12 +1280,12 @@
 		else
 			form.value.p2_djmddz = ''
 	});
-	watch(() => [form.value.p1_djmddz, form.value.p2_djmddz], ([p1,p2]) => {
-			form.value.p_pjz1 = (p1+p2) / 2;
+	watch(() => [form.value.p1_djmddz, form.value.p2_djmddz], ([p1, p2]) => {
+		form.value.p_pjz1 = (p1 + p2) / 2;
 	});
 	watch(() => [form.value.p_pjz1, form.value.ρsha], ([p_pjz, ρsha]) => {
 		if (ρsha)
-			form.value.k = (1 - p_pjz/ρsha) *100;
+			form.value.k = (1 - p_pjz / ρsha) * 100;
 		else
 			form.value.k = ''
 	});
@@ -1523,12 +1302,12 @@
 		else
 			form.value.y2_jzmddz = ''
 	});
-	watch(() => [form.value.y1_jzmddz, form.value.y2_jzmddz], ([y1,y2]) => {
-			form.value.y_pjz1 = (y1+y2) / 2;
+	watch(() => [form.value.y1_jzmddz, form.value.y2_jzmddz], ([y1, y2]) => {
+		form.value.y_pjz1 = (y1 + y2) / 2;
 	});
 	watch(() => [form.value.y_pjz1, form.value.ρsha], ([y_pjz, ρsha]) => {
 		if (ρsha)
-			form.value.t = (1 - y_pjz/ρsha) *100;
+			form.value.t = (1 - y_pjz / ρsha) * 100;
 		else
 			form.value.t = ''
 	});
