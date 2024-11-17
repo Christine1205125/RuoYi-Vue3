@@ -482,14 +482,77 @@
 						<td rowspan="4" height="120" class="xl87" width="56"
 							style="height:91.6pt;border-top:none;width:42pt">容量筒容积校正</td>
 						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和玻璃板总质量(g)</td>
-						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">Float（M1）</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">同左</td>
+						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
+						    <el-form-item 
+						        prop="m1_rlthblbzzl" 
+						        :rules="rules.m1_rlthblbzzl.rules" 
+						        :error="errorsMsg.m1_rlthblbzzl.errMsg" 
+						        :show-message="errorsMsg.m1_rlthblbzzl.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.m1_rlthblbzzl" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.m1_rlthblbzzl }}</span>
+						</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+						    <el-form-item 
+						        prop="m1_2_rlthblbzzl" 
+						        :rules="rules.m1_2_rlthblbzzl.rules" 
+						        :error="errorsMsg.m1_2_rlthblbzzl.errMsg" 
+						        :show-message="errorsMsg.m1_2_rlthblbzzl.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.m1_2_rlthblbzzl" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.m1_2_rlthblbzzl }}</span>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
-						<td colspan="4" height="30" class="xl70" width="267"
-							style="height:22.9pt;border-left:none;width:200pt">容量筒、玻璃板和水总质量(g)</td>
-						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">Float（M3）</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">同左</td>
+						<td colspan="4" height="30" class="xl70" width="267" style="height:22.9pt;border-left:none;width:200pt">容量筒、玻璃板和水总质量(g)</td>
+						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
+						    <el-form-item 
+						        prop="m3_rltblbhszzl" 
+						        :rules="rules.m3_rltblbhszzl.rules" 
+						        :error="errorsMsg.m3_rltblbhszzl.errMsg" 
+						        :show-message="errorsMsg.m3_rltblbhszzl.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.m3_rltblbhszzl" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.m3_rltblbhszzl }}</span>
+						</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+						    <el-form-item 
+						        prop="m3_2_rltblbhszzl" 
+						        :rules="rules.m3_2_rltblbhszzl.rules" 
+						        :error="errorsMsg.m3_2_rltblbhszzl.errMsg" 
+						        :show-message="errorsMsg.m3_2_rltblbhszzl.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.m3_2_rltblbhszzl" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.m3_2_rltblbhszzl }}</span>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" rowspan="2" height="60" class="xl70" width="153"
@@ -505,26 +568,106 @@
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">
-							试验温度T时水的密度</td>
-						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">Float（ρ_T）</td>
+						    试验温度T时水的密度
+						</td>
+						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
+						    <el-form-item 
+						        prop="ρT" 
+						        :rules="rules.ρT.rules" 
+						        :error="errorsMsg.ρT.errMsg" 
+						        :show-message="errorsMsg.ρT.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.ρT" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.ρT }}</span>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">
-							砂的表观密度(g/cm³)</td>
-						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">Float（ρ_砂）</td>
+						    砂的表观密度(g/cm³)
+						</td>
+						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
+						    <el-form-item 
+						        prop="ρsha" 
+						        :rules="rules.ρsha.rules" 
+						        :error="errorsMsg.ρsha.errMsg" 
+						        :show-message="errorsMsg.ρsha.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.ρsha" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.ρsha }}</span>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
-						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">容量筒质量(g)
+						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">容量筒质量(g)</td>
+						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
+						    <el-form-item 
+						        prop="mo" 
+						        :rules="rules.mo.rules" 
+						        :error="errorsMsg.mo.errMsg" 
+						        :show-message="errorsMsg.mo.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.mo" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.mo }}</span>
 						</td>
-						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">Float（M0）</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td rowspan="4" height="120" class="xl87" width="56"
 							style="height:91.6pt;border-top:none;width:42pt">堆积密度及空隙率</td>
-						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和堆积砂的总质量(g)
+						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和堆积砂的总质量(g)</td>
+						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
+						    <el-form-item 
+						        prop="m2_rlthdjsdzzl" 
+						        :rules="rules.m2_rlthdjsdzzl.rules" 
+						        :error="errorsMsg.m2_rlthdjsdzzl.errMsg" 
+						        :show-message="errorsMsg.m2_rlthdjsdzzl.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.m2_rlthdjsdzzl" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.m2_rlthdjsdzzl }}</span>
 						</td>
-						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">Float（M2）</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">同左</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+						    <el-form-item 
+						        prop="m2_2_rlthdjsdzzl" 
+						        :rules="rules.m2_2_rlthdjsdzzl.rules" 
+						        :error="errorsMsg.m2_2_rlthdjsdzzl.errMsg" 
+						        :show-message="errorsMsg.m2_2_rlthdjsdzzl.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.m2_2_rlthdjsdzzl" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.m2_2_rlthdjsdzzl }}</span>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" rowspan="2" height="60" class="xl70" width="153"
@@ -548,10 +691,41 @@
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td rowspan="4" height="120" class="xl87" width="56"
 							style="height:91.6pt;border-top:none;width:42pt">紧装密度及空隙率</td>
-						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和紧装砂的总质量(g)
+						<td colspan="4" class="xl70" width="267" style="border-left:none;width:200pt">容量筒和紧装砂的总质量(g)</td>
+						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">
+						    <el-form-item 
+						        prop="m4_rlthjzsdzzl" 
+						        :rules="rules.m4_rlthjzsdzzl.rules" 
+						        :error="errorsMsg.m4_rlthjzsdzzl.errMsg" 
+						        :show-message="errorsMsg.m4_rlthjzsdzzl.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.m4_rlthjzsdzzl" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.m4_rlthjzsdzzl }}</span>
 						</td>
-						<td colspan="3" class="xl70" width="165" style="border-left:none;width:123pt">Float（M4）</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">同左</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+						    <el-form-item 
+						        prop="m4_2_rlthjzsdzzl" 
+						        :rules="rules.m4_2_rlthjzsdzzl.rules" 
+						        :error="errorsMsg.m4_2_rlthjzsdzzl.errMsg" 
+						        :show-message="errorsMsg.m4_2_rlthjzsdzzl.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.m4_2_rlthjzsdzzl" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.m4_2_rlthjzsdzzl }}</span>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" rowspan="2" height="60" class="xl70" width="153"
@@ -573,9 +747,24 @@
 							T=(1-Y的平均值/ρ_砂)*100</td>
 					</tr>
 					<tr height="60" style="mso-height-source:userset;height:45.0pt">
-						<td colspan="11" height="60" class="xl121" width="653"
-							style="height:45.0pt;width:488pt;text-align: left; padding-left: 0;">
-							附加声明：<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp; </span>string</td>
+						<td colspan="11" height="60" class="xl121" width="653" style="height:45.0pt;width:488pt;text-align: left; padding-left: 0;">
+						    附加声明：
+						    <el-form-item 
+						        prop="fjsm" 
+						        :rules="rules.fjsm.rules" 
+						        :error="errorsMsg.fjsm.errMsg" 
+						        :show-message="errorsMsg.fjsm.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.fjsm" 
+						            clearable 
+						            type="textarea" 
+						            rows="2" 
+						            style="width: 100%; height: 100%; box-sizing: border-box; margin-top: 10px;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.fjsm }}</span>
+						</td>
 					</tr>
 					<tr height="35" style="mso-height-source:userset;height:26.25pt">
 						<td height="35" class="xl118" style="height:26.25pt">检测:</td>
@@ -673,6 +862,32 @@
 			dbsl: undefined, // 代表数量(m^3)
 			jlcd: undefined, // 集料产地
 			pzgg: undefined, // 品种规格
+			m1_rlthblbzzl:undefined,
+			m1_2_rlthblbzzl:undefined,
+			m3_rltblbhszzl:undefined,
+			m3_2_rltblbhszzl:undefined,
+			v1_rltrjdz:undefined,
+			v2_rltrjdz:undefined,
+			v_pjz1:undefined,
+			v_pjz2:undefined,
+			ρT:undefined,
+			ρsha:undefined,
+			mo:undefined,
+			m2_rlthdjsdzzl:undefined,
+			m2_2_rlthdjsdzzl:undefined,
+			p1_djmddz:undefined,
+			p2_djmddz:undefined,
+			p_pjz1:undefined,
+			p_pjz2:undefined,
+			k:undefined,
+			m4_rlthjzsdzzl:undefined,
+			m4_2_rlthjzsdzzl:undefined,
+			y1_jzmddz:undefined,
+			y2_jzmddz:undefined,
+			y_pjz1:undefined,
+			y_pjz2:undefined,
+			t:undefined,
+			fjsm:undefined,
 		},
 		queryParams: {
 			jcdwmc: undefined,
@@ -690,6 +905,32 @@
 			qydd: undefined,
 			jlcd: undefined,
 			pzgg: undefined,
+			m1_rlthblbzzl:undefined,
+			m1_2_rlthblbzzl:undefined,
+			m3_rltblbhszzl:undefined,
+			m3_2_rltblbhszzl:undefined,
+			v1_rltrjdz:undefined,
+			v2_rltrjdz:undefined,
+			v_pjz1:undefined,
+			v_pjz2:undefined,
+			ρT:undefined,
+			ρsha:undefined,
+			mo:undefined,
+			m2_rlthdjsdzzl:undefined,
+			m2_2_rlthdjsdzzl:undefined,
+			p1_djmddz:undefined,
+			p2_djmddz:undefined,
+			p_pjz1:undefined,
+			p_pjz2:undefined,
+			k:undefined,
+			m4_rlthjzsdzzl:undefined,
+			m4_2_rlthjzsdzzl:undefined,
+			y1_jzmddz:undefined,
+			y2_jzmddz:undefined,
+			y_pjz1:undefined,
+			y_pjz2:undefined,
+			t:undefined,
+			fjsm:undefined,
 
 			pageNum: 1,
 			pageSize: 10,
@@ -893,7 +1134,89 @@
 					}
 				]
 			},
-
+			m1_rlthblbzzl:{
+				rules: [{
+						required: true,
+						message: '容量筒和玻璃板总质量不能为空！'
+					},
+				]
+			},
+			m1_2_rlthblbzzl:{
+				rules: [{
+						required: true,
+						message: '容量筒和玻璃板总质量不能为空！'
+					},
+				]
+			},
+			m3_rltblbhszzl:{
+				rules: [{
+						required: true,
+						message: '容量筒、玻璃板和水总质量不能为空！'
+					},
+				]
+			},
+			m3_2_rltblbhszzl:{
+				rules: [{
+						required: true,
+						message: '容量筒、玻璃板和水总质量不能为空！'
+					},
+				]
+			},
+			ρT:{
+				rules: [{
+						required: true,
+						message: '试验温度T时水的密度不能为空！'
+					},
+				]
+			},
+			ρsha:{
+				rules: [{
+						required: true,
+						message: '砂的表观密度不能为空！'
+					},
+				]
+			},
+			mo:{
+				rules: [{
+						required: true,
+						message: '容量筒质量不能为空！'
+					},
+				]
+			},
+			m2_rlthdjsdzzl:{
+				rules: [{
+						required: true,
+						message: '容量筒和堆积砂的总质量不能为空！'
+					},
+				]
+			},
+			m2_2_rlthdjsdzzl:{
+				rules: [{
+						required: true,
+						message: '容量筒和堆积砂的总质量不能为空！'
+					},
+				]
+			},
+			m4_rlthjzsdzzl:{
+				rules: [{
+						required: true,
+						message: '容量筒和紧装砂的总质量不能为空！'
+					},
+				]
+			},
+			m4_2_rlthjzsdzzl:{
+				rules: [{
+						required: true,
+						message: '容量筒和紧装砂的总质量不能为空！'
+					},
+				]
+			},
+			fjsm:{
+				rules: [{
+						required: true,
+					},
+				]
+			},
 
 		}, //endrules
 
@@ -968,6 +1291,54 @@
 				errMsg: ""
 			},
 			pzgg: {
+				hasError: false,
+				errMsg: ""
+			},
+			m1_rlthblbzzl:{
+				hasError: false,
+				errMsg: ""
+			},
+			m1_2_rlthblbzzl:{
+				hasError: false,
+				errMsg: ""
+			},
+			m3_rltblbhszzl:{
+				hasError: false,
+				errMsg: ""
+			},
+			m3_2_rltblbhszzl:{
+				hasError: false,
+				errMsg: ""
+			},
+			ρT:{
+				hasError: false,
+				errMsg: ""
+			},
+			ρsha:{
+				hasError: false,
+				errMsg: ""
+			},
+			mo:{
+				hasError: false,
+				errMsg: ""
+			},
+			m2_rlthdjsdzzl:{
+				hasError: false,
+				errMsg: ""
+			},
+			m2_2_rlthdjsdzzl:{
+				hasError: false,
+				errMsg: ""
+			},
+			m4_rlthjzsdzzl:{
+				hasError: false,
+				errMsg: ""
+			},
+			m4_2_rlthjzsdzzl:{
+				hasError: false,
+				errMsg: ""
+			},
+			fjsm:{
 				hasError: false,
 				errMsg: ""
 			},
