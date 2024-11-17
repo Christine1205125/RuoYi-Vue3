@@ -26,7 +26,7 @@ export function updateCX02(data) {
 
 export function deleteCX02(id) {
 	return request({
-	  url: '/business/christine/cx02/delete/'+id,
+	  url: '/business/christine/cx02/delete?id='+id,
 	  method: 'delete',
 	})
 }	

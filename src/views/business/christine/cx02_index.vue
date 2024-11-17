@@ -324,36 +324,154 @@
 						    <span style="display: none;">{{ form.sytj }}</span>
 						</td>
 					</tr>
-					<tr height="30" style="mso-height-source:userset;height:22.9pt">
-						<td colspan="2" height="30" class="xl87" width="112" style="height:22.9pt;width:84pt">检测依据</td>
-						<td colspan="4" class="xl70" width="266" style="border-left:none;width:199pt"><span
-								style="mso-spacerun:yes">&nbsp; </span>string</td>
-						<td colspan="2" class="xl70" width="110" style="border-left:none;width:82pt">判定依据</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt"><span
-								style="mso-spacerun:yes">&nbsp; </span>string</td>
+					<tr height="30" style="mso-height-source: userset; height: 22.9pt;">
+					    <td colspan="2" height="30" class="xl87" width="112" style="height: 22.9pt; width: 84pt">检测依据</td>
+					    <td colspan="4" class="xl70" width="266" style="border-left:none; width: 199pt">
+					        <el-form-item 
+					            prop="jcyj" 
+					            :rules="rules.jcyj.rules" 
+					            :error="errorsMsg.jcyj.errMsg" 
+					            :show-message="errorsMsg.jcyj.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.jcyj" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.jcyj }}</span>
+					        </el-form-item>
+					    </td>
+					    <td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">判定依据</td>
+					    <td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
+					        <el-form-item 
+					            prop="pdyj" 
+					            :rules="rules.pdyj.rules" 
+					            :error="errorsMsg.pdyj.errMsg" 
+					            :show-message="errorsMsg.pdyj.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.pdyj" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.pdyj }}</span>
+					        </el-form-item>
+					    </td>
 					</tr>
-					<tr height="40" style="mso-height-source:userset;height:30.0pt">
-						<td colspan="2" height="40" class="xl87" width="112" style="height:30.0pt;width:84pt">
-							主要仪器设备<br>名称及编号</td>
-						<td colspan="9" class="xl92" width="541" style="border-left:none;width:404pt"><span
-								style="mso-spacerun:yes">&nbsp;&nbsp; </span>string</td>
+					<tr height="40" style="mso-height-source: userset; height: 30.0pt;">
+					    <td colspan="2" height="40" class="xl87" width="112" style="height: 30.0pt; width: 84pt">
+					        主要仪器设备<br>名称及编号
+					    </td>
+					    <td colspan="9" class="xl92" width="541" style="border-left:none; width: 404pt">
+					        <el-form-item 
+					            prop="zyyqsbmcjbh" 
+					            :rules="rules.zyyqsbmcjbh.rules" 
+					            :error="errorsMsg.zyyqsbmcjbh.errMsg" 
+					            :show-message="errorsMsg.zyyqsbmcjbh.hasError"
+					            style="margin: 0;"
+					        >
+					            <el-input 
+					                v-model="form.zyyqsbmcjbh" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					            <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+					            <span style="display: none;">{{ form.zyyqsbmcjbh }}</span>
+					        </el-form-item>
+					    </td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="2" height="30" class="xl87" width="112" style="height:22.9pt;width:84pt">取样地点</td>
-						<td class="xl72" width="97" style="border-top:none;border-left:none;width:73pt"><span
-								style="mso-spacerun:yes">&nbsp; </span>string</td>
+						<td class="xl72" width="97" style="border-top:none;border-left:none;width:73pt">
+						    <el-form-item 
+						        prop="qydd" 
+						        :rules="rules.qydd.rules" 
+						        :error="errorsMsg.qydd.errMsg" 
+						        :show-message="errorsMsg.qydd.hasError"
+						        style="margin: 0;"
+						    >
+						        <el-input 
+						            v-model="form.qydd" 
+						            clearable 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						        <!-- 同步显示输入值的隐藏文本，供导出 Excel 使用 -->
+						        <span style="display: none;">{{ form.qydd }}</span>
+						    </el-form-item>
+						</td>
 						<td class="xl72" width="67" style="border-top:none;width:50pt">取样日期</td>
-						<td colspan="2" class="xl72" width="102" style="width:76pt">Year-month-day</td>
+						<td colspan="2" class="xl72" width="102" style="width:76pt">
+						    <el-form-item 
+						        prop="qyrq" 
+						        :rules="rules.qyrq.rules" 
+						        :error="errorsMsg.qyrq.errMsg" 
+						        :show-message="errorsMsg.qyrq.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-date-picker
+						            v-model="form.qyrq"
+						            type="date"
+						            value-format="YYYY-MM-DD"
+						            style="width: 100%; height: 100%; box-sizing: border-box;">
+						        </el-date-picker>
+						    </el-form-item>
+						    <span style="display: none;">{{ form.qyrq }}</span>
+						</td>
 						<td colspan="2" class="xl70" width="110" style="width:82pt">代表数量(m³)</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">Float</td>
+						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+						    <el-form-item 
+						        prop="dbsl" 
+						        :rules="rules.dbsl.rules" 
+						        :error="errorsMsg.dbsl.errMsg" 
+						        :show-message="errorsMsg.dbsl.hasError"
+						        style="margin: 0; height: 100%;">
+						        <el-input 
+						            v-model="form.dbsl" 
+						            clearable 
+						            type="number" 
+						            step="0.01" 
+						            style="width: 100%; height: 100%; box-sizing: border-box;"
+						        />
+						    </el-form-item>
+						    <span style="display: none;">{{ form.dbsl }}</span>
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
-						<td colspan="2" height="30" class="xl87" width="112" style="height:22.9pt;width:84pt">集料产地</td>
-						<td colspan="4" class="xl70" width="266" style="border-left:none;width:199pt"><span
-								style="mso-spacerun:yes">&nbsp; </span>string</td>
-						<td colspan="2" class="xl70" width="110" style="border-left:none;width:82pt">品种规格</td>
-						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt"><span
-								style="mso-spacerun:yes">&nbsp; </span>string</td>
+					    <td colspan="2" height="30" class="xl87" width="112" style="height:22.9pt;width:84pt">集料产地</td>
+					    <td colspan="4" class="xl70" width="266" style="border-left:none;width:199pt">
+					        <el-form-item 
+					            prop="jlcd" 
+					            :rules="rules.jlcd.rules" 
+					            :error="errorsMsg.jlcd.errMsg" 
+					            :show-message="errorsMsg.jlcd.hasError"
+					            style="margin: 0; height: 100%;">
+					            <el-input 
+					                v-model="form.jlcd" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					        </el-form-item>
+					        <span style="display: none;">{{ form.jlcd }}</span>
+					    </td>
+					    <td colspan="2" class="xl70" width="110" style="border-left:none;width:82pt">品种规格</td>
+					    <td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
+					        <el-form-item 
+					            prop="pzgg" 
+					            :rules="rules.pzgg.rules" 
+					            :error="errorsMsg.pzgg.errMsg" 
+					            :show-message="errorsMsg.pzgg.hasError"
+					            style="margin: 0; height: 100%;">
+					            <el-input 
+					                v-model="form.pzgg" 
+					                clearable 
+					                style="width: 100%; height: 100%; box-sizing: border-box;"
+					            />
+					        </el-form-item>
+					        <span style="display: none;">{{ form.pzgg }}</span>
+					    </td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td colspan="5" height="30" class="xl87" width="323" style="height:22.9pt;width:242pt">试验次数</td>
@@ -745,11 +863,29 @@
 					}
 				]
 			},
+			dbsl: {
+				rules: [{
+						required: true,
+						message: '代表数量不能为空！'
+					},
+				]
+			},
 
 			jlcd: {
 				rules: [{
 						required: true,
 						message: '集料产地不能为空！'
+					},
+					{
+						max: 64,
+						message: '长度不能超过64个字符！'
+					}
+				]
+			},
+			pzgg: {
+				rules: [{
+						required: true,
+						message: '品种规格不能为空！'
 					},
 					{
 						max: 64,
