@@ -49,6 +49,7 @@
 
 			<el-form-item>
 				<el-button type="primary" icon="Search" @click="handleQuery">搜索</el-button>
+				<el-button icon="Plus" @click="handleAdd">增加</el-button>
 				<el-button icon="Refresh" @click="resetQuery">重置</el-button>
 				<el-button icon="Edit" @click="seeRecord">查看</el-button>
 			</el-form-item>
@@ -56,6 +57,15 @@
 		</el-form>
 
 		<el-table v-if="refreshTable" v-loading="loading" :data="cx02List" row-key="id">
+			<el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+				<template #default="scope">
+					<el-button link type="primary" icon="Edit" @click="seeRecord(scope.row)">查看</el-button>
+					<!-- <el-button link type="primary" icon="Plus" @click="handleAdd(scope.row)" >新增</el-button>
+			     <el-button v-if="scope.row.parentId != 0" link type="primary" icon="Delete" @click="handleDelete(scope.row)" >删除</el-button> -->
+					<el-button v-if="scope.row.parentId != 0" link type="primary" icon="Delete"
+						@click="handleDelete(scope.row)">删除</el-button>
+				</template>
+			</el-table-column>
 			<el-table-column prop="id" label="ID" width="60"></el-table-column>
 			<el-table-column prop="jcdwmc" label="检测单位名称" width="260"></el-table-column>
 			<el-table-column prop="gcmc" label="工程名称" width="200"></el-table-column>
@@ -84,15 +94,7 @@
 					<span>{{ parseTime(scope.row.updateTime) }}</span>
 				</template>
 			</el-table-column>
-			<el-table-column label="操作" align="center" class-name="small-padding fixed-width">
-				<template #default="scope">
-					<el-button link type="primary" icon="Edit" @click="seeRecord(scope.row)">查看</el-button>
-					<!-- <el-button link type="primary" icon="Plus" @click="handleAdd(scope.row)" >新增</el-button>
-		         <el-button v-if="scope.row.parentId != 0" link type="primary" icon="Delete" @click="handleDelete(scope.row)" >删除</el-button> -->
-					<el-button v-if="scope.row.parentId != 0" link type="primary" icon="Delete"
-						@click="handleDelete(scope.row)">删除</el-button>
-				</template>
-			</el-table-column>
+
 		</el-table>
 
 		<pagination v-show="total > 0" :total="total" v-model:page="queryParams.pageNum"
@@ -191,7 +193,7 @@
 						</td>
 						<td colspan="2" class="xl70" width="110" style="border-left:none; width: 82pt">监理单位</td>
 						<td colspan="3" class="xl90" width="165" style="border-left:none; width: 123pt">
-							<el-form-item prop="jl dw" :rules="rules.jldw.rules" :error="errorsMsg.jldw.errMsg"
+							<el-form-item prop="jldw" :rules="rules.jldw.rules" :error="errorsMsg.jldw.errMsg"
 								:show-message="errorsMsg.jldw.hasError" style="margin: 0;">
 								<el-input v-model="form.jldw" clearable
 									style="width: 100%; height: 100%; box-sizing: border-box;" />
@@ -302,7 +304,7 @@
 						<td colspan="2" class="xl72" width="102" style="width:76pt">
 							<el-form-item prop="qyrq" :rules="rules.qyrq.rules" :error="errorsMsg.qyrq.errMsg"
 								:show-message="errorsMsg.qyrq.hasError" style="margin: 0; height: 100%;">
-								<el-date-picker v-model="form.qyrq" type="date" value-format="YYYY-MM-DD"
+								<el-date-picker v-model="form.qyrq" type="date" value-format="YYYY-MM-DD 00:00:00"
 									style="width: 100%; height: 100%; box-sizing: border-box;">
 								</el-date-picker>
 							</el-form-item>
@@ -310,7 +312,7 @@
 						</td>
 						<td colspan="2" class="xl70" width="110" style="width:82pt">代表数量(m³)</td>
 						<td colspan="3" class="xl90" width="165" style="border-left:none;width:123pt">
-							<el-form-item prop="dbsl" :rules="rules.dbsl.rules" :error="errorsMsg.dbsl.errMsg"
+							<el-form-item prop="dbsl" :error="errorsMsg.dbsl.errMsg"
 								:show-message="errorsMsg.dbsl.hasError" style="margin: 0; height: 100%;">
 								<el-input v-model="form.dbsl" clearable type="number" step="0.01"
 									style="width: 100%; height: 100%; box-sizing: border-box;" />
@@ -414,12 +416,12 @@
 							试验温度T时水的密度
 						</td>
 						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
-							<el-form-item prop="ρT" :rules="rules.ρT.rules" :error="errorsMsg.ρT.errMsg"
-								:show-message="errorsMsg.ρT.hasError" style="margin: 0; height: 100%;">
-								<el-input v-model="form.ρT" clearable type="number" step="0.01"
+							<el-form-item prop="pt" :rules="rules.pt.rules" :error="errorsMsg.pt.errMsg"
+								:show-message="errorsMsg.pt.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.pt" clearable type="number" step="0.01"
 									style="width: 100%; height: 100%; box-sizing: border-box;" />
 							</el-form-item>
-							<span style="display: none;">{{ form.ρT }}</span>
+							<span style="display: none;">{{ form.pt }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
@@ -427,12 +429,12 @@
 							砂的表观密度(g/cm³)
 						</td>
 						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
-							<el-form-item prop="ρsha" :rules="rules.ρsha.rules" :error="errorsMsg.ρsha.errMsg"
-								:show-message="errorsMsg.ρsha.hasError" style="margin: 0; height: 100%;">
-								<el-input v-model="form.ρsha" clearable type="number" step="0.01"
+							<el-form-item prop="psha" :rules="rules.psha.rules" :error="errorsMsg.psha.errMsg"
+								:show-message="errorsMsg.psha.hasError" style="margin: 0; height: 100%;">
+								<el-input v-model="form.psha" clearable type="number" step="0.01"
 									style="width: 100%; height: 100%; box-sizing: border-box;" />
 							</el-form-item>
-							<span style="display: none;">{{ form.ρsha }}</span>
+							<span style="display: none;">{{ form.psha }}</span>
 						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
@@ -496,7 +498,8 @@
 						<td colspan="4" height="30" class="xl70" width="267"
 							style="height:22.9pt;border-left:none;width:200pt">堆积空隙率(%)</td>
 						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
-							{{form.k}}</td>
+							{{form.k}}
+						</td>
 					</tr>
 					<tr height="30" style="mso-height-source:userset;height:22.9pt">
 						<td rowspan="4" height="120" class="xl87" width="56"
@@ -544,7 +547,8 @@
 						<td colspan="4" height="30" class="xl70" width="267"
 							style="height:22.9pt;border-left:none;width:200pt">紧装空隙率(%)</td>
 						<td colspan="6" class="xl90" width="330" style="border-left:none;width:246pt">
-							{{form.t}}</td>
+							{{form.t}}
+						</td>
 					</tr>
 					<tr height="60" style="mso-height-source:userset;height:45.0pt">
 						<td colspan="11" height="60" class="xl121" width="653"
@@ -587,7 +591,8 @@
 			</el-form>
 			<template #footer>
 				<div class="dialog-footer" style="text-align: center;">
-					<el-button type="primary" icon="Edit" @click="handleUpdate()">修改</el-button>
+					<el-button v-if="!isEdit" type="primary" icon="Edit" @click="handleInsert()">新增</el-button>
+					<el-button v-if="isEdit" type="primary" icon="Edit" @click="handleUpdate()">修改</el-button>
 					<el-button type="primary" @click="genExcel">导出表格</el-button>
 					<el-button @click="cancel">取 消</el-button>
 				</div>
@@ -608,15 +613,13 @@
 	} from 'vue';
 
 	import {
+		insertCX02,
 		listcx02,
 		updateCX02,
 		deleteCX02
 	} from '../../../api/business/christine/cx02';
 	import $ from 'jquery';
 
-	import {
-		getTestReportCX02
-	} from '../../../api/business/christine/cx02';
 
 	const cx02List = ref([]);
 	const {
@@ -628,6 +631,7 @@
 	const total = ref(0);
 	const title = ref("");
 	const open = ref(false);
+	const isEdit = ref(false); // 新增的 isEdit 变量
 
 	const data = reactive({
 		form: {
@@ -662,8 +666,8 @@
 			v2_rltrjdz: undefined,
 			v_pjz1: undefined,
 			v_pjz2: undefined,
-			ρT: undefined,
-			ρsha: undefined,
+			pT: undefined,
+			psha: undefined,
 			mo: undefined,
 			m2_rlthdjsdzzl: undefined,
 			m2_2_rlthdjsdzzl: undefined,
@@ -705,8 +709,8 @@
 			v2_rltrjdz: undefined,
 			v_pjz1: undefined,
 			v_pjz2: undefined,
-			ρT: undefined,
-			ρsha: undefined,
+			pt: undefined,
+			psha: undefined,
 			mo: undefined,
 			m2_rlthdjsdzzl: undefined,
 			m2_2_rlthdjsdzzl: undefined,
@@ -896,12 +900,15 @@
 					}
 				]
 			},
-			dbsl: {
-				rules: [{
-					required: true,
-					message: '代表数量不能为空！'
-				}, ]
-			},
+	
+			
+			dbsl: [
+				{
+						required: true,
+						message: '代表数量不能为空！'
+					},
+			],
+			
 
 			jlcd: {
 				rules: [{
@@ -925,72 +932,72 @@
 					}
 				]
 			},
-			m1_rlthblbzzl: {
-				rules: [{
-					required: true,
-					message: '容量筒和玻璃板总质量不能为空！'
-				}, ]
-			},
-			m1_2_rlthblbzzl: {
-				rules: [{
-					required: true,
-					message: '容量筒和玻璃板总质量不能为空！'
-				}, ]
-			},
-			m3_rltblbhszzl: {
-				rules: [{
-					required: true,
-					message: '容量筒、玻璃板和水总质量不能为空！'
-				}, ]
-			},
-			m3_2_rltblbhszzl: {
-				rules: [{
-					required: true,
-					message: '容量筒、玻璃板和水总质量不能为空！'
-				}, ]
-			},
-			ρT: {
-				rules: [{
-					required: true,
-					message: '试验温度T时水的密度不能为空！'
-				}, ]
-			},
-			ρsha: {
-				rules: [{
-					required: true,
-					message: '砂的表观密度不能为空！'
-				}, ]
-			},
-			mo: {
-				rules: [{
-					required: true,
-					message: '容量筒质量不能为空！'
-				}, ]
-			},
-			m2_rlthdjsdzzl: {
-				rules: [{
-					required: true,
-					message: '容量筒和堆积砂的总质量不能为空！'
-				}, ]
-			},
-			m2_2_rlthdjsdzzl: {
-				rules: [{
-					required: true,
-					message: '容量筒和堆积砂的总质量不能为空！'
-				}, ]
-			},
-			m4_rlthjzsdzzl: {
-				rules: [{
-					required: true,
-					message: '容量筒和紧装砂的总质量不能为空！'
-				}, ]
-			},
-			m4_2_rlthjzsdzzl: {
-				rules: [{
-					required: true,
-					message: '容量筒和紧装砂的总质量不能为空！'
-				}, ]
-			},
+			m1_rlthblbzzl: [
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			m1_2_rlthblbzzl: [
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			m3_rltblbhszzl: [
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			m3_2_rltblbhszzl:[
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			pt: [
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			psha: [
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			mo: [
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			m2_rlthdjsdzzl: [
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			m2_2_rlthdjsdzzl: [
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			m4_rlthjzsdzzl:[
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
+			m4_2_rlthjzsdzzl:[
+				{
+						required: true,
+						message: '不能为空！'
+					},
+			],
 			fjsm: {
 				rules: [{
 					required: true,
@@ -1089,11 +1096,11 @@
 				hasError: false,
 				errMsg: ""
 			},
-			ρT: {
+			pt: {
 				hasError: false,
 				errMsg: ""
 			},
-			ρsha: {
+			psha: {
 				hasError: false,
 				errMsg: ""
 			},
@@ -1147,6 +1154,7 @@
 	}
 	/**查看按钮操作*/
 	function seeRecord(row) {
+		isEdit.value = true
 		form.value = row
 		console.log(form.value.jcdwmc)
 		title.value = "查看详情"
@@ -1163,6 +1171,12 @@
 			exclude_inputs: true
 		});
 	}
+	function handleAdd(){
+		isEdit.value = false
+		reset()
+		title.value = "新增数据"
+		open.value = true
+	}
 	/** 修改按钮操作 */
 	function handleUpdate() {
 		console.log(form.value)
@@ -1170,11 +1184,11 @@
 			console.log(valid)
 			// debugger
 			if (valid) {
-				updateCC02(form.value).then(res => { //获取后端校验信息
+				updateCX02(form.value).then(res => { //获取后端校验信息
 					console.log(res)
 					alert("更新成功！")
 				}).catch(err => {
-					cleanWarning();
+					// cleanWarning();
 					if (err.code == 600) {
 						for (let key in err.data) {
 							errorsMsg.value[key].hasError = true
@@ -1193,6 +1207,37 @@
 			}
 		})
 	}
+	
+	function handleInsert() {
+		console.log(form.value)
+		proxy.$refs["cx02Ref"].validate(valid => { //获取前端校验效果
+			console.log(valid)
+			// debugger
+			if (valid) {
+				insertCX02(form.value).then(res => { //获取后端校验信息
+					console.log(res)
+					alert("新增成功！")
+				}).catch(err => {
+					// cleanWarning();
+					if (err.code == 600) {
+						for (let key in err.data) {
+							errorsMsg.value[key].hasError = true
+							errorsMsg.value[key].errMsg = err.data[key]
+						}
+					}
+					console.log(err)
+				})
+			} else {
+				for (let index in proxy.$refs["cx02Ref"].fields) { // 获取前端校验信息
+					if (proxy.$refs["cx02Ref"].fields[index].validateState == 'error') {
+						errorsMsg.value[proxy.$refs["cx02Ref"].fields[index].prop].hasError = true
+					}
+				}
+				alert("表单校验不通过！")
+			}
+		})
+	}
+	
 	//删除错误信息
 	function cleanWarning() {
 		for (let key in errorsMsg.value) {
@@ -1252,15 +1297,15 @@
 
 	// 监听器计算实时计算字段值
 	//表1
-	watch(() => [form.value.m3_rltblbhszzl, form.value.m1_rlthblbzzl, form.value.ρT], ([m3, m1, ρT]) => {
-		if (ρT)
-			form.value.v1_rltrjdz = (m3 - m1) / ρT;
+	watch(() => [form.value.m3_rltblbhszzl, form.value.m1_rlthblbzzl, form.value.pt], ([m3, m1, pt]) => {
+		if (pt)
+			form.value.v1_rltrjdz = (m3 - m1) / pt;
 		else
 			form.value.v1_rltrjdz = ''
 	});
-	watch(() => [form.value.m3_2_rltblbhszzl, form.value.m1_2_rlthblbzzl, form.value.ρT], ([m3, m1, ρT]) => {
-		if (ρT)
-			form.value.v2_rltrjdz = (m3 - m1) / ρT;
+	watch(() => [form.value.m3_2_rltblbhszzl, form.value.m1_2_rlthblbzzl, form.value.pt], ([m3, m1, pt]) => {
+		if (pt)
+			form.value.v2_rltrjdz = (m3 - m1) / pt;
 		else
 			form.value.v2_rltrjdz = ''
 	});
@@ -1283,9 +1328,9 @@
 	watch(() => [form.value.p1_djmddz, form.value.p2_djmddz], ([p1, p2]) => {
 		form.value.p_pjz1 = (p1 + p2) / 2;
 	});
-	watch(() => [form.value.p_pjz1, form.value.ρsha], ([p_pjz, ρsha]) => {
-		if (ρsha)
-			form.value.k = (1 - p_pjz / ρsha) * 100;
+	watch(() => [form.value.p_pjz1, form.value.psha], ([p_pjz, psha]) => {
+		if (psha)
+			form.value.k = (1 - p_pjz / psha) * 100;
 		else
 			form.value.k = ''
 	});
@@ -1305,9 +1350,9 @@
 	watch(() => [form.value.y1_jzmddz, form.value.y2_jzmddz], ([y1, y2]) => {
 		form.value.y_pjz1 = (y1 + y2) / 2;
 	});
-	watch(() => [form.value.y_pjz1, form.value.ρsha], ([y_pjz, ρsha]) => {
-		if (ρsha)
-			form.value.t = (1 - y_pjz / ρsha) * 100;
+	watch(() => [form.value.y_pjz1, form.value.psha], ([y_pjz, psha]) => {
+		if (psha)
+			form.value.t = (1 - y_pjz / psha) * 100;
 		else
 			form.value.t = ''
 	});

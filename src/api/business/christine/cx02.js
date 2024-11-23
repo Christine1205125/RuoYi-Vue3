@@ -24,16 +24,17 @@ export function updateCX02(data) {
 	})
 }
 
+export function insertCX02(data) {
+	return request({
+	  url: '/business/christine/cx02/insert',
+	  method: 'post',
+	  data: data
+	})
+}
+
 export function deleteCX02(id) {
 	return request({
 	  url: '/business/christine/cx02/delete?id='+id,
 	  method: 'delete',
 	})
 }	
-//修改
-export function getTestReportCX02(id) {
-	return request({
-	  url: '/business/christine/cx02/get/'+id,
-	  method: 'get',
-	})
-}
